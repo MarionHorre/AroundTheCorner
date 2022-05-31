@@ -1,3 +1,4 @@
 class District < ApplicationRecord
-  belongs_to :interest
+  has_many :interest, dependent: :destroy
+  has_many :houses, dependent: :destroy
 end
