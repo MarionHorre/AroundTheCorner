@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+# calcul if point of interest includ in district
+gem 'geokit'
+
 # gem 'jbuilder'
 
 gem 'autoprefixer-rails', '10.2.5'
