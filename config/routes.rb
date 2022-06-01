@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get "/test", to: "pages#test"
+  get "/tester", to: "pages#tester"
   get "/recap", to: "pages#recap"
   get "/districts", to: "districts#index"
   post "/districts", to: "districts#search"
