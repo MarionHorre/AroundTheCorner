@@ -39,6 +39,7 @@ movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
 parc = Type.create(category: 'hobbies', name: 'parcs')
 swimming_pool = Type.create(category: 'hobbies', name: 'swimming_pool')
 library = Type.create(category: 'hobbies', name: 'library')
+fitness = Type.create(category: 'hobbies', name: 'fitness')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -170,12 +171,32 @@ hobbies_libraries = type_hobbies_libraries.map do |element|
   longitude = element["geometry"]["coordinates"][0]
   latitude = element["geometry"]["coordinates"][1]
   city_name = polygone_maker.which_city(latitude, longitude)
-  p city_name
   unless city_name.nil?
     district = District.find_by(name: city_name)
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: library, district: district)
   end
 end
+
+# Seeds Interest : Hobbies --> Salles de sport
+Interest.create!(address: "7 Rue d'Amiens, 59000 Lille", longitude: "50.634156", latitude: "3.063759", type: fitness, district: lille_centre)
+Interest.create!(address: "202 Rue Solférino, 59000 Lille", longitude: "50.629833", latitude: "3.057111", type: fitness, district: lille_centre)
+Interest.create!(address: "3 Rue bis Edouard Delesalle, 59000 Lille", longitude: "50.632679", latitude: "3.066441", type: fitness, district: )
+Interest.create!(address: "31 Rue du Molinel, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "4 Rue du Professeur Langevin, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "4bis Rue des Sarrazins, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "166 Centre Commercial Euralille, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "85 Rue Nationale, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "233 Rue Leon Gambetta, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "4 Rue Fourier, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "124 Rue du Douai, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "Rue du Faubourg des Postes, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "28bis Rue d'Esquermes, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "124 Rue Roger Salengro, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "154 Boulevard Montebello, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "Rue Dumont d'Urville, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "417 Avenue du Président Hoover, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "17 Rue du Progrès, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
+Interest.create!(address: "130 Rue du Grand But, 59000 Lille", longitude: "", latitude: "", type: fitness, district: )
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
