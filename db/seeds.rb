@@ -173,6 +173,55 @@ Interest.create!(address: "84 Rue de Philadelphie, 59800 Lille", longitude: "50.
 Interest.create!(address: "33 Rue Jacquard, 59260 Lille", longitude: "50.633518", latitude: "3.104455", type: veterinaire, district: fives)
 Interest.create!(address: "114 Rue Roger Salengro, 59260 Lille", longitude: "50.628917", latitude: "3.105683", type: veterinaire, district: fives)
 
+# seeds Interest : Vie quotidienne
+supermarket = Type.create(category: 'vie quotidienne', name: 'supermarché')
+school = Type.create(category: 'vie quotidienne', name: 'école')
+kids_park = Type.create(category: 'vie quotidienne', name: 'parc à jeux')
+
+# seeds Interest : Vie quotidienne =>
+filepath_supermarket = "db/data-mel/daily/magasins-et-boutiques.json"
+type_daily_supermarket = JSON.parse(File.read(filepath_supermarket))
+
+daily_supermarket = type_daily_supermarket.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: supermarket, district: district)
+  end
+end
+
+# seeds Interest : Vie quotidienne => Ecoles
+filepath_school = "db/data-mel/daily/adresse-et-geolocalisation-des-etablissements-denseignement-du-premier-et-second.json"
+type_daily_school = JSON.parse(File.read(filepath_school))
+
+daily_school = type_daily_school.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: school, district: district)
+  end
+end
+
+# seeds Interest : Vie quotidienne => Air de jeu
+filepath_kids_park = "db/data-mel/daily/aires-de-jeux.json"
+type_daily_kids_park = JSON.parse(File.read(filepath_kids_park))
+
+daily_kids_park = type_daily_kids_park.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: kids_park, district: district)
+  end
+end
+
 puts 'Finished!'
 # Interest.create(adresse, )
-

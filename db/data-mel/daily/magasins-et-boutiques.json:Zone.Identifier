@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://opendata.lillemetropole.fr/explore/dataset/magasins-et-boutiques/export/
+HostUrl=https://opendata.lillemetropole.fr/explore/dataset/magasins-et-boutiques/download/?format=json&timezone=Europe/Berlin&lang=fr
