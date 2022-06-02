@@ -30,6 +30,7 @@ Type.destroy_all
 vlille = Type.create(category: 'transport', name: 'vlille')
 bus = Type.create(category: 'transport', name: 'bus')
 metro = Type.create(category: 'transport', name: 'metro')
+tram = Type.create(category: 'transport', name: 'tram')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -79,14 +80,27 @@ transport_metro = type_transport_metro.map do |element|
   longitude = element["geometry"]["coordinates"][0]
   latitude = element["geometry"]["coordinates"][1]
   city_name = polygone_maker.which_city(latitude, longitude)
-  p city_name
   unless city_name.nil?
     district = District.find_by(name: city_name)
     interest = Interest.create!(longitude: longitude, latitude: latitude, type: metro, district: district)
   end
 end
 
+# seeds Interest Tram
 
+filepath = "db/data-mel/transport/arrets-tram.json"
+
+type_transport_tram = JSON.parse(File.read(filepath))
+
+transport_tram = type_transport_tram.map do |element|
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(longitude: longitude, latitude: latitude, type: tram, district: district)
+  end
+end
 
 
 # seeds Interest : Santé
