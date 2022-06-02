@@ -28,6 +28,8 @@ fives = District.create(name: "Fives", image: "https://www.lille.fr/var/www/stor
 
 Type.destroy_all
 vlille = Type.create(category: 'transport', name: 'vlille')
+
+historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
 bus = Type.create(category: 'transport', name: 'bus')
 metro = Type.create(category: 'transport', name: 'metro')
 tram = Type.create(category: 'transport', name: 'tram')
@@ -52,6 +54,9 @@ transport_vlille = type_transport_vlille.map do |element|
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: vlille, district: district)
   end
 end
+
+
+
 
 # seeds Interest Bus
 
@@ -102,6 +107,24 @@ transport_tram = type_transport_tram.map do |element|
   end
 end
 
+# Hobbies Interests
+
+filepath = "db/data-mel/hobbies/monuments-historiques-lille.json"
+
+type_hobbies_historical_monuments = JSON.parse(File.read(filepath))
+polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
+
+
+hobbies_historical_monuments = type_hobbies_historical_monuments.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["fields"]["coord_geo"].split(",")[1]
+  latitude = element["fields"]["coord_geo"].split(",")[0]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: historical_monuments, district: district)
+  end
+end
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
@@ -117,7 +140,6 @@ health_pharmacie = type_health_pharmacie.map do |element|
   adresse = element["fields"]["adresse"]
   longitude = element["geometry"]["coordinates"][0]
   latitude = element["geometry"]["coordinates"][1]
-  # interest = Interest.new(address: @adresse, longitude: @longitude, latitude: @latitude, type: @vlille )
   city_name = polygone_maker.which_city(latitude, longitude)
   unless city_name.nil?
     district = District.find_by(name: city_name)
@@ -137,3 +159,4 @@ Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: 
 
 puts 'Finished!'
 # Interest.create(adresse, )
+
