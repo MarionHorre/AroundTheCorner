@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+
+.website-presentation {
+  padding: 15px 130px;
+  margin: 25px 0;
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+  background-color: $grey;
+  border: white;
+
+  img{
+    width: 40px;
+    height: 25px;
+    margin-right: 30px;
+  }
+
+  p {
+    padding-top: 1em ;
+    font-size: 18px;
+  }
+
+}
