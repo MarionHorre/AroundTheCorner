@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2022_06_02_092015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "agencies", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "phone_number"
-    t.string "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "house_id", null: false
@@ -48,11 +39,9 @@ ActiveRecord::Schema.define(version: 2022_06_02_092015) do
     t.integer "price"
     t.integer "square_meters"
     t.integer "room_number"
-    t.bigint "agency_id", null: false
     t.bigint "district_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["agency_id"], name: "index_houses_on_agency_id"
     t.index ["district_id"], name: "index_houses_on_district_id"
   end
 
@@ -89,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_092015) do
 
   add_foreign_key "bookmarks", "houses"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "houses", "agencies"
+  add_foreign_key "districts", "interests"
   add_foreign_key "houses", "districts"
   add_foreign_key "interests", "districts"
   add_foreign_key "interests", "types"
