@@ -1,2 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>coucou</h1>
+
+<div class="form-card">
+  <%= simple_form_for :search, url: recap_path, method: "GET" do |f|  %>
+    <div class="form_category">
+      <%= f.label :transport %>
+      <%= f.input :vlille, input_html: {name: 'transport[vlille]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :metro, input_html: {name: 'transport[métro]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :tramway, input_html: {name: 'transport[tramway]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :bus, input_html: {name: 'transport[bus]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+    <div class="form_category d-none">
+      <%= f.label :vie_quotidienne %>
+      <%= f.input :supermarché, input_html: {name: 'vie quotidienne[supermarché]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :parc_à_jeux, input_html: {name: 'vie quotidienne[parc_à_jeux]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+    <div class="form_category d-none">
+      <%= f.label :hobbies %>
+      <%= f.input :monuments_historiques, input_html: {name: 'hobbies[historical_monuments]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :metro, input_html: {name: 'transport[métro]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :tramway, input_html: {name: 'transport[tramway]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :bus, input_html: {name: 'transport[bus]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+    <div class="form_category d-none">
+      <%= f.label :hobbies %>
+      <%= f.input :monuments_historiques, input_html: {name: 'hobbies[historical_monuments]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :metro, input_html: {name: 'transport[métro]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :tramway, input_html: {name: 'transport[tramway]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :bus, input_html: {name: 'transport[bus]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+    <%= f.submit "Résumé", class: "" %>
+  <% end %>
+</div>
