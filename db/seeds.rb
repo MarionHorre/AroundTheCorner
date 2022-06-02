@@ -51,6 +51,11 @@ transport_vlille = type_transport_vlille.map do |element|
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: vlille, district: district)
   end
 end
+<<<<<<< HEAD
+=======
+
+p transport_vlille.size
+>>>>>>> a35479304744f6cc7f8d1f144bc05d436be604bb
 
 # seeds Interest Bus
 
@@ -68,6 +73,7 @@ transport_bus = type_transport_bus.map do |element|
   end
 end
 
+<<<<<<< HEAD
 # seeds Interest metro
 
 filepath = "db/data-mel/transport/stations-metro.json"
@@ -85,5 +91,36 @@ transport_metro = type_transport_metro.map do |element|
   end
 end
 
+=======
+
+
+# seeds Interest : Santé
+pharmacie = Type.create(category: 'santé', name: 'pharmacie')
+hopital = Type.create(category: 'santé', name: 'hôpital')
+veterinaire = Type.create(category: 'santé', name: 'vétérinaire')
+
+# seeds Interest : Santé => Pharmacies
+
+filepath_pharmacie = "db/data-mel/health/pharmacies.json"
+type_health_pharmacie = JSON.parse(File.read(filepath_pharmacie))
+
+health_pharmacie = type_health_pharmacie.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  # interest = Interest.new(address: @adresse, longitude: @longitude, latitude: @latitude, type: @vlille )
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: pharmacie, district: district)
+  end
+end
+
+# seeds Interest : Santé => Hopitaux
+
+# seeds Interest : Santé => Vétérinaies
+
+
+>>>>>>> a35479304744f6cc7f8d1f144bc05d436be604bb
 puts 'Finished!'
 # Interest.create(adresse, )
