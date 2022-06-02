@@ -28,14 +28,16 @@ fives = District.create(name: "Fives", image: "https://www.lille.fr/var/www/stor
 
 Type.destroy_all
 vlille = Type.create(category: 'transport', name: 'vlille')
+bus = Type.create(category: 'transport', name: 'bus')
 
 # seeds Interest
+polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
 
+# seeds Interest Transport
+# seeds Interest Vlille
 filepath = "db/data-mel/transport/vlille-realtime.json"
 
 type_transport_vlille = JSON.parse(File.read(filepath))
-polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
-
 
 transport_vlille = type_transport_vlille.map do |element|
   adresse = element["fields"]["adresse"]
@@ -48,6 +50,27 @@ transport_vlille = type_transport_vlille.map do |element|
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: vlille, district: district)
   end
 end
+
+p transport_vlille.size
+
+# seeds Interest Bus
+
+filepath = "db/data-mel/transport/arrets-bus.json"
+
+type_transport_bus = JSON.parse(File.read(filepath))
+
+transport_bus = type_transport_bus.map do |element|
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  p city_name
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(longitude: longitude, latitude: latitude, type: bus, district: district)
+  end
+end
+
+
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
@@ -74,6 +97,7 @@ end
 # seeds Interest : Santé => Hopitaux
 
 # seeds Interest : Santé => Vétérinaies
+
 
 puts 'Finished!'
 # Interest.create(adresse, )
