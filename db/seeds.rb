@@ -38,11 +38,10 @@ type_transport_vlille = JSON.parse(File.read(filepath))
   @adresse = element["fields"]["adresse"]
   @longitude = element["geometry"]["coordinates"][0]
   @latitude = element["geometry"]["coordinates"][1]
-  interest = Interest.new(address: @adresse, longitude: @longitude, latitude: @latitude, type: @vlille )
+  # interest = Interest.new(address: @adresse, longitude: @longitude, latitude: @latitude, type: @vlille )
   city_name = PolygoneMaker.which_city(longitude, latitude)
-  district = District.where(name: city_name)
-
-
+  @district = District.where(name: city_name)
+  interest = Interest.create(address: @adresse, longitude: @longitude, latitude: @latitude, type: @vlille, district: @district)
 end
 puts 'Finished!'
 # Interest.create(adresse, )

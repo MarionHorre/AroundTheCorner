@@ -33,6 +33,8 @@ gem 'devise'
 # calcul if point of interest includ in district
 gem 'geokit'
 
+gem 'rgeo-geojson'
+
 # gem 'jbuilder'
 
 gem 'autoprefixer-rails', '10.2.5'
