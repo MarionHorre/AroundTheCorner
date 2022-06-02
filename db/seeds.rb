@@ -31,11 +31,14 @@ fives = District.create(name: "Fives", image: "https://www.lille.fr/var/www/stor
 
 Type.destroy_all
 vlille = Type.create(category: 'transport', name: 'vlille')
-
-historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
 bus = Type.create(category: 'transport', name: 'bus')
 metro = Type.create(category: 'transport', name: 'metro')
 tram = Type.create(category: 'transport', name: 'tram')
+historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
+movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
+parc = Type.create(category: 'hobbies', name: 'parcs')
+swimming_pool = Type.create(category: 'hobbies', name: 'swimming_pool')
+library = Type.create(category: 'hobbies', name: 'library')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -111,6 +114,7 @@ transport_tram = type_transport_tram.map do |element|
 end
 
 # Hobbies Interests
+# Hobbies Interests --> Monuments Historiques
 
 filepath = "db/data-mel/hobbies/monuments-historiques-lille.json"
 
@@ -126,6 +130,49 @@ hobbies_historical_monuments = type_hobbies_historical_monuments.map do |element
   unless city_name.nil?
     district = District.find_by(name: city_name)
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: historical_monuments, district: district)
+  end
+end
+
+Interest.create!(address: "Place de la République, 59000 Lille", longitude: "50.372955", latitude: "3.032788", type: historical_monuments, district: lille_centre)
+Interest.create!(address: "23 Rue Gosselet, 59000 Lille", longitude: "50.372159", latitude: "3.036000", type: historical_monuments, district: lille_centre)
+Interest.create!(address: "32 Rue de la Monnaie, 59000 Lille", longitude: "50.382800", latitude: "3.034741", type: historical_monuments, district: vieux_lille)
+Interest.create!(address: "8 rue Princesse, 59000 Lille", longitude: "50.384524", latitude: "3.03316764", type: historical_monuments, district: vieux_lille)
+
+# Seeds Interest : Hobbies --> Cinémas
+Interest.create!(address: "40 Rue de Béthune, 59000 Lille", longitude: "50.3821527", latitude: "3.03479279", type: movie_theater, district: lille_centre)
+Interest.create!(address: "54 Rue de Béthune, 59000 Lille", longitude: "50.633577", latitude: "3.062750", type: movie_theater, district: lille_centre)
+Interest.create!(address: "26 Rue des Ponts de Comines, 59000 Lille", longitude: "50.636557", latitude: "3.067008", type: movie_theater, district: lille_centre)
+Interest.create!(address: "16 Rue Georges Danton, 59000 Lille", longitude: "50.623713", latitude: "3.074401", type: movie_theater, district: lille_moulins)
+Interest.create!(address: "18 Rue Gosselet, 59000 Lille", longitude: "50.625981", latitude: "3.066018", type: movie_theater, district: lille_centre)
+
+# Seeds Interest : Hobbies --> Parcs
+Interest.create!(address: "Voie Piétonne du Bois de la Deûle, 59000 Lille", longitude: "50.642564", latitude: "3.038913", type: parc, district: lille_centre)
+Interest.create!(address: "Boulevard Jean-Baptiste Lebas, 59000 Lille", longitude: "50.626234", latitude: "3.068452", type: parc, district: lille_centre)
+Interest.create!(address: "Boulevard Vauban, 59000 Lille", longitude: "50.636628", latitude: "3.050466", type: parc, district: lille_centre)
+Interest.create!(address: "306 Rue du Jardin des Plantes, 59000 Lille", longitude: "50.615411", latitude: "3.067955", type: parc, district: lille_moulins)
+
+# Seeds Interest : Hobbies --> Piscines
+Interest.create!(address: "36 Avenue Max Dormoy, 59000 Lille", longitude: "50.635307", latitude: "3.034147", type: swimming_pool, district: bois_blanc)
+Interest.create!(address: "1 Boulevard Eugene Duthoit, 59000 Lille", longitude: "50.607327", latitude: "3.042171", type: swimming_pool, district: lille_sud)
+Interest.create!(address: "82 Rue du Long Pot, 59000 Lille", longitude: "50.628673", latitude: "3.088158", type: swimming_pool, district: fives)
+Interest.create!(address: "433bis Avenue de Lomme, 59000 Lille", longitude: "50.613811", latitude: "3.042360", type: swimming_pool, district: lomme)
+Interest.create!(address: "19 Rue du Progrès, 59000 Lille", longitude: "50.630041", latitude: "3.118585", type: swimming_pool, district: hellemmes)
+
+# Seeds Interest : Hobbies --> Bibliothèques
+filepath = "db/data-mel/hobbies/bibliotheques-mel.json"
+
+type_hobbies_libraries = JSON.parse(File.read(filepath))
+polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
+
+
+hobbies_libraries = type_hobbies_libraries.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: library, district: district)
   end
 end
 
@@ -157,7 +204,7 @@ Interest.create!(address: "Bd de Belfort", longitude: "50.619797", latitude: "3.
 Interest.create!(address: "44 Av. Marx Dormoy", longitude: "50.634577", latitude: "3.032350", type: hopital, district: bois_blanc)
 Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: "2.979720", type: hopital, district: lomme)
 
-# seeds Interest : Santé => Vétérinaies
+# seeds Interest : Santé => Vétérinaires
 
 Interest.create!(address: "598 Av. de Dunkerque, 59160 Lille", longitude: "50.646552", latitude: "3.009247", type: veterinaire, district: lomme)
 Interest.create!(address: "6 Av. de la République, 59160 Lille", longitude: "50.640050", latitude: "3.017594", type: veterinaire, district: lomme)
@@ -173,6 +220,55 @@ Interest.create!(address: "84 Rue de Philadelphie, 59800 Lille", longitude: "50.
 Interest.create!(address: "33 Rue Jacquard, 59260 Lille", longitude: "50.633518", latitude: "3.104455", type: veterinaire, district: fives)
 Interest.create!(address: "114 Rue Roger Salengro, 59260 Lille", longitude: "50.628917", latitude: "3.105683", type: veterinaire, district: fives)
 
+# seeds Interest : Vie quotidienne
+supermarket = Type.create(category: 'vie quotidienne', name: 'supermarché')
+school = Type.create(category: 'vie quotidienne', name: 'école')
+kids_park = Type.create(category: 'vie quotidienne', name: 'parc à jeux')
+
+# seeds Interest : Vie quotidienne =>
+filepath_supermarket = "db/data-mel/daily/magasins-et-boutiques.json"
+type_daily_supermarket = JSON.parse(File.read(filepath_supermarket))
+
+daily_supermarket = type_daily_supermarket.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: supermarket, district: district)
+  end
+end
+
+# seeds Interest : Vie quotidienne => Ecoles
+filepath_school = "db/data-mel/daily/adresse-et-geolocalisation-des-etablissements-denseignement-du-premier-et-second.json"
+type_daily_school = JSON.parse(File.read(filepath_school))
+
+daily_school = type_daily_school.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: school, district: district)
+  end
+end
+
+# seeds Interest : Vie quotidienne => Air de jeu
+filepath_kids_park = "db/data-mel/daily/aires-de-jeux.json"
+type_daily_kids_park = JSON.parse(File.read(filepath_kids_park))
+
+daily_kids_park = type_daily_kids_park.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: kids_park, district: district)
+  end
+end
+
 puts 'Finished!'
 # Interest.create(adresse, )
-
