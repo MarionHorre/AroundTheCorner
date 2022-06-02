@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 
 # calcul if point of interest includ in district
-# gem 'geokit'
+gem 'geokit'
 
 gem 'rgeo-geojson'
 
