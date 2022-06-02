@@ -10,6 +10,9 @@ require "json"
 require 'geokit'
 require_relative "polygone_maker"
 
+District.destroy_all
+Interest.destroy_all
+
 # seeds district
 lomme = District.create(name: "Lomme", image: "https://edito.seloger.com/sites/default/files/edito_migrate/rue_du_bourg-eglise_ste_caliste-lambersart-img_3726.jpg", description: "Lomme est une ancienne commune française située dans le département du Nord et la région Hauts-de-France, associée à Lille depuis février 2000")
 bois_blanc = District.create(name: "Bois-Blancs", image: "https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/actualites/images/juin-2019/bandeau-bois-blancs/2586156-2-fre-FR/bandeau-bois-blancs_page_banner_image_bannerview.png", description: "Le quartier émergent de Bois Blancs est traversé par le canal et la rivière Deûle, où des péniches colorées sont amarrées le long de quais post-industriels. Des pistes de jogging bordent les cours d'eau, appréciés des amateurs de kayak et de stand up paddle. Des immeubles d'habitation contemporains surplombent les jardins du parc EuraTechnologies, aménagé dans une ancienne usine textile en briques rouges. Des pizzerias et des pâtisseries d'angle parsèment les rues résidentielles de la zone.")
@@ -156,6 +159,19 @@ Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: 
 
 # seeds Interest : Santé => Vétérinaies
 
+Interest.create!(address: "598 Av. de Dunkerque, 59160 Lille", longitude: "50.646552", latitude: "3.009247", type: veterinaire, district: lomme)
+Interest.create!(address: "6 Av. de la République, 59160 Lille", longitude: "50.640050", latitude: "3.017594", type: veterinaire, district: lomme)
+Interest.create!(address: "4c Rue Philippe-Laurent Roland, 59000 Lille", longitude: "50.632647", latitude: "3.043344", type: veterinaire, district: vauban_esquermes)
+Interest.create!(address: "26 Bd Montebello, 59000 Lille", longitude: "50.624666", latitude: "3.040856", type: veterinaire, district: vauban_esquermes)
+Interest.create!(address: "80 Bd Montebello, 59000 Lille", longitude: "50.624666", latitude: "3.040856", type: veterinaire, district: vauban_esquermes)
+Interest.create!(address: "94 Bd Montebello, 59000 Lille", longitude: "50.624666", latitude: "3.040856", type: veterinaire, district: vauban_esquermes)
+Interest.create!(address: "195 Rue Nationale, 59800 Lille", longitude: "50.630796", latitude: "3.050382", type: veterinaire, district: lille_centre)
+Interest.create!(address: "80 Rue Masséna, 59800 Lille", longitude: "50.630469", latitude: "3.054330", type: veterinaire, district: wazemmes)
+Interest.create!(address: "43 Quai des Chevillards, 59800 Lille", longitude: "50.646800", latitude: "3.056905", type: veterinaire, district: vieux_lille)
+Interest.create!(address: "112 Rue du Faubourg de Roubaix, 59800 Lille", longitude: "50.640595", latitude: "3.082139", type: veterinaire, district: saint_maurice_pellevoisin)
+Interest.create!(address: "84 Rue de Philadelphie, 59800 Lille", longitude: "50.632538", latitude: "3.098275", type: veterinaire, district: fives)
+Interest.create!(address: "33 Rue Jacquard, 59260 Lille", longitude: "50.633518", latitude: "3.104455", type: veterinaire, district: fives)
+Interest.create!(address: "114 Rue Roger Salengro, 59260 Lille", longitude: "50.628917", latitude: "3.105683", type: veterinaire, district: fives)
 
 puts 'Finished!'
 # Interest.create(adresse, )
