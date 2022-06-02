@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://opendata.lillemetropole.fr/explore/dataset/pharmacies/export/?location=11,50.67164,2.99412&basemap=jawg.streets
+HostUrl=https://opendata.lillemetropole.fr/explore/dataset/pharmacies/download/?format=json&timezone=Europe/Berlin&lang=fr

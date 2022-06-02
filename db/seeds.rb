@@ -28,15 +28,20 @@ fives = District.create(name: "Fives", image: "https://www.lille.fr/var/www/stor
 
 Type.destroy_all
 vlille = Type.create(category: 'transport', name: 'vlille')
+
 historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
+bus = Type.create(category: 'transport', name: 'bus')
+metro = Type.create(category: 'transport', name: 'metro')
+tram = Type.create(category: 'transport', name: 'tram')
 
 # seeds Interest
+polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
 
+# seeds Interest Transport
+# seeds Interest Vlille
 filepath = "db/data-mel/transport/vlille-realtime.json"
 
 type_transport_vlille = JSON.parse(File.read(filepath))
-polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
-
 
 transport_vlille = type_transport_vlille.map do |element|
   adresse = element["fields"]["adresse"]
@@ -47,6 +52,58 @@ transport_vlille = type_transport_vlille.map do |element|
   unless city_name.nil?
     district = District.find_by(name: city_name)
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: vlille, district: district)
+  end
+end
+
+
+
+
+# seeds Interest Bus
+
+filepath = "db/data-mel/transport/arrets-bus.json"
+
+type_transport_bus = JSON.parse(File.read(filepath))
+
+transport_bus = type_transport_bus.map do |element|
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(longitude: longitude, latitude: latitude, type: bus, district: district)
+  end
+end
+
+
+# seeds Interest metro
+
+filepath = "db/data-mel/transport/stations-metro.json"
+
+type_transport_metro = JSON.parse(File.read(filepath))
+
+transport_metro = type_transport_metro.map do |element|
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(longitude: longitude, latitude: latitude, type: metro, district: district)
+  end
+end
+
+# seeds Interest Tram
+
+filepath = "db/data-mel/transport/arrets-tram.json"
+
+type_transport_tram = JSON.parse(File.read(filepath))
+
+transport_tram = type_transport_tram.map do |element|
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(longitude: longitude, latitude: latitude, type: tram, district: district)
   end
 end
 
@@ -62,10 +119,44 @@ hobbies_historical_monuments = type_hobbies_historical_monuments.map do |element
   adresse = element["fields"]["adresse"]
   longitude = element["fields"]["coord_geo"].split(",")[1]
   latitude = element["fields"]["coord_geo"].split(",")[0]
-  # interest = Interest.new(address: @adresse, longitude: @longitude, latitude: @latitude, type: @vlille )
   city_name = polygone_maker.which_city(latitude, longitude)
   unless city_name.nil?
     district = District.find_by(name: city_name)
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: historical_monuments, district: district)
   end
 end
+
+# seeds Interest : Santé
+pharmacie = Type.create(category: 'santé', name: 'pharmacie')
+hopital = Type.create(category: 'santé', name: 'hôpital')
+veterinaire = Type.create(category: 'santé', name: 'vétérinaire')
+
+# seeds Interest : Santé => Pharmacies
+
+filepath_pharmacie = "db/data-mel/health/pharmacies.json"
+type_health_pharmacie = JSON.parse(File.read(filepath_pharmacie))
+
+health_pharmacie = type_health_pharmacie.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: pharmacie, district: district)
+  end
+end
+
+# seeds Interest : Santé => Hopitaux
+
+Interest.create!(address: "2 Av. Oscar Lambret", longitude: "50.609859", latitude: "3.032916", type: hopital, district: lille_sud)
+Interest.create!(address: "Bd de Belfort", longitude: "50.619797", latitude: "3.075907", type: hopital, district: lille_moulins)
+Interest.create!(address: "44 Av. Marx Dormoy", longitude: "50.634577", latitude: "3.032350", type: hopital, district: bois_blanc)
+Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: "2.979720", type: hopital, district: lomme)
+
+# seeds Interest : Santé => Vétérinaies
+
+
+puts 'Finished!'
+# Interest.create(adresse, )
+
