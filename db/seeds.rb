@@ -37,7 +37,8 @@ tram = Type.create(category: 'transport', name: 'tram')
 historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
 movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
 parc = Type.create(category: 'hobbies', name: 'parcs')
-swimmingpool = Type.create(category: 'hobbies', name: 'swimming_pool')
+swimming_pool = Type.create(category: 'hobbies', name: 'swimming_pool')
+library = Type.create(category)
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -156,6 +157,9 @@ Interest.create!(address: "1 Boulevard Eugene Duthoit, 59000 Lille", longitude: 
 Interest.create!(address: "82 Rue du Long Pot, 59000 Lille", longitude: "50.628673", latitude: "3.088158", type: swimming_pool, district: fives)
 Interest.create!(address: "433bis Avenue de Lomme, 59000 Lille", longitude: "50.613811", latitude: "3.042360", type: swimming_pool, district: lomme)
 Interest.create!(address: "19 Rue du Progrès, 59000 Lille", longitude: "50.630041", latitude: "3.118585", type: swimming_pool, district: hellemmes)
+
+# Seeds Interest : Hobbies --> Bibliothèques
+
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
