@@ -51,11 +51,6 @@ transport_vlille = type_transport_vlille.map do |element|
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: vlille, district: district)
   end
 end
-<<<<<<< HEAD
-=======
-
-p transport_vlille.size
->>>>>>> a35479304744f6cc7f8d1f144bc05d436be604bb
 
 # seeds Interest Bus
 
@@ -73,7 +68,7 @@ transport_bus = type_transport_bus.map do |element|
   end
 end
 
-<<<<<<< HEAD
+
 # seeds Interest metro
 
 filepath = "db/data-mel/transport/stations-metro.json"
@@ -91,7 +86,7 @@ transport_metro = type_transport_metro.map do |element|
   end
 end
 
-=======
+
 
 
 # seeds Interest : Santé
@@ -118,9 +113,13 @@ end
 
 # seeds Interest : Santé => Hopitaux
 
+Interest.create!(address: "2 Av. Oscar Lambret", longitude: "50.609859", latitude: "3.032916", type: hopital, district: lille_sud)
+Interest.create!(address: "Bd de Belfort", longitude: "50.619797", latitude: "3.075907", type: hopital, district: lille_moulins)
+Interest.create!(address: "44 Av. Marx Dormoy", longitude: "50.634577", latitude: "3.032350", type: hopital, district: bois_blanc)
+Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: "2.979720", type: hopital, district: lomme)
+
 # seeds Interest : Santé => Vétérinaies
 
 
->>>>>>> a35479304744f6cc7f8d1f144bc05d436be604bb
 puts 'Finished!'
 # Interest.create(adresse, )
