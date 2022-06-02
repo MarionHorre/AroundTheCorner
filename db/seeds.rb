@@ -31,11 +31,10 @@ fives = District.create(name: "Fives", image: "https://www.lille.fr/var/www/stor
 
 Type.destroy_all
 vlille = Type.create(category: 'transport', name: 'vlille')
-
-historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
 bus = Type.create(category: 'transport', name: 'bus')
 metro = Type.create(category: 'transport', name: 'metro')
 tram = Type.create(category: 'transport', name: 'tram')
+historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -111,6 +110,7 @@ transport_tram = type_transport_tram.map do |element|
 end
 
 # Hobbies Interests
+# Hobbies Interests --> Monuments Historiques
 
 filepath = "db/data-mel/hobbies/monuments-historiques-lille.json"
 
@@ -128,6 +128,13 @@ hobbies_historical_monuments = type_hobbies_historical_monuments.map do |element
     interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: historical_monuments, district: district)
   end
 end
+
+Interest.create!(address: "Place de la République, 59000 Lille", longitude: "50.372955", latitude: "3.032788", type: historical_monuments, district: lille_centre)
+Interest.create!(address: "23 Rue Gosselet, 59000 Lille", longitude: "50.372159", latitude: "3.036000", type: historical_monuments, district: lille_centre)
+Interest.create!(address: "32 Rue de la Monnaie, 59000 Lille", longitude: "50.382800", latitude: "3.034741", type: historical_monuments, district: vieux_lille)
+Interest.create!(address: "8 rue Princesse, 59000 Lille", longitude: "50.384524", latitude: "3.03316764", type: historical_monuments, district: vieux_lille)
+
+# Seeds Interest : Hobbies -->
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
@@ -157,7 +164,7 @@ Interest.create!(address: "Bd de Belfort", longitude: "50.619797", latitude: "3.
 Interest.create!(address: "44 Av. Marx Dormoy", longitude: "50.634577", latitude: "3.032350", type: hopital, district: bois_blanc)
 Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: "2.979720", type: hopital, district: lomme)
 
-# seeds Interest : Santé => Vétérinaies
+# seeds Interest : Santé => Vétérinaires
 
 Interest.create!(address: "598 Av. de Dunkerque, 59160 Lille", longitude: "50.646552", latitude: "3.009247", type: veterinaire, district: lomme)
 Interest.create!(address: "6 Av. de la République, 59160 Lille", longitude: "50.640050", latitude: "3.017594", type: veterinaire, district: lomme)
@@ -175,4 +182,3 @@ Interest.create!(address: "114 Rue Roger Salengro, 59260 Lille", longitude: "50.
 
 puts 'Finished!'
 # Interest.create(adresse, )
-
