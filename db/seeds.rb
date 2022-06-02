@@ -38,7 +38,7 @@ historical_monuments = Type.create(category: 'hobbies', name: 'historical monume
 movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
 parc = Type.create(category: 'hobbies', name: 'parcs')
 swimming_pool = Type.create(category: 'hobbies', name: 'swimming_pool')
-library = Type.create(category)
+library = Type.create(category: 'hobbies', name: 'library')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -159,7 +159,22 @@ Interest.create!(address: "433bis Avenue de Lomme, 59000 Lille", longitude: "50.
 Interest.create!(address: "19 Rue du Progrès, 59000 Lille", longitude: "50.630041", latitude: "3.118585", type: swimming_pool, district: hellemmes)
 
 # Seeds Interest : Hobbies --> Bibliothèques
+filepath = "db/data-mel/hobbies/bibliotheques-mel.json"
 
+type_hobbies_libraries = JSON.parse(File.read(filepath))
+polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
+
+
+hobbies_libraries = type_hobbies_libraries.map do |element|
+  adresse = element["fields"]["adresse"]
+  longitude = element["geometry"]["coordinates"][0]
+  latitude = element["geometry"]["coordinates"][1]
+  city_name = polygone_maker.which_city(latitude, longitude)
+  unless city_name.nil?
+    district = District.find_by(name: city_name)
+    interest = Interest.create!(address: adresse, longitude: longitude, latitude: latitude, type: library, district: district)
+  end
+end
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
