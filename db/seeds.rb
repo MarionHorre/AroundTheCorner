@@ -37,6 +37,7 @@ tram = Type.create(category: 'transport', name: 'tram')
 historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
 movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
 parc = Type.create(category: 'hobbies', name: 'parcs')
+swimmingpool = Type.create(category: 'hobbies', name: 'swimming_pool')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -148,6 +149,13 @@ Interest.create!(address: "Voie Piétonne du Bois de la Deûle, 59000 Lille", lo
 Interest.create!(address: "Boulevard Jean-Baptiste Lebas, 59000 Lille", longitude: "50.626234", latitude: "3.068452", type: parc, district: lille_centre)
 Interest.create!(address: "Boulevard Vauban, 59000 Lille", longitude: "50.636628", latitude: "3.050466", type: parc, district: lille_centre)
 Interest.create!(address: "306 Rue du Jardin des Plantes, 59000 Lille", longitude: "50.615411", latitude: "3.067955", type: parc, district: lille_moulins)
+
+# Seeds Interest : Hobbies --> Piscines
+Interest.create!(address: "36 Avenue Max Dormoy, 59000 Lille", longitude: "50.635307", latitude: "3.034147", type: swimming_pool, district: bois_blanc)
+Interest.create!(address: "1 Boulevard Eugene Duthoit, 59000 Lille", longitude: "50.607327", latitude: "3.042171", type: swimming_pool, district: lille_sud)
+Interest.create!(address: "82 Rue du Long Pot, 59000 Lille", longitude: "50.628673", latitude: "3.088158", type: swimming_pool, district: fives)
+Interest.create!(address: "433bis Avenue de Lomme, 59000 Lille", longitude: "50.613811", latitude: "3.042360", type: swimming_pool, district: lomme)
+Interest.create!(address: "19 Rue du Progrès, 59000 Lille", longitude: "50.630041", latitude: "3.118585", type: swimming_pool, district: hellemmes)
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
