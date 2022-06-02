@@ -51,8 +51,6 @@ transport_vlille = type_transport_vlille.map do |element|
   end
 end
 
-p transport_vlille.size
-
 # seeds Interest Bus
 
 filepath = "db/data-mel/transport/arrets-bus.json"
@@ -63,7 +61,6 @@ transport_bus = type_transport_bus.map do |element|
   longitude = element["geometry"]["coordinates"][0]
   latitude = element["geometry"]["coordinates"][1]
   city_name = polygone_maker.which_city(latitude, longitude)
-  p city_name
   unless city_name.nil?
     district = District.find_by(name: city_name)
     interest = Interest.create!(longitude: longitude, latitude: latitude, type: bus, district: district)
@@ -95,6 +92,11 @@ health_pharmacie = type_health_pharmacie.map do |element|
 end
 
 # seeds Interest : Santé => Hopitaux
+
+Interest.create!(address: "2 Av. Oscar Lambret", longitude: "50.609859", latitude: "3.032916", type: hopital, district: lille_sud)
+Interest.create!(address: "Bd de Belfort", longitude: "50.619797", latitude: "3.075907", type: hopital, district: lille_moulins)
+Interest.create!(address: "44 Av. Marx Dormoy", longitude: "50.634577", latitude: "3.032350", type: hopital, district: bois_blanc)
+Interest.create!(address: "Rue du Grand But", longitude: "50.650250", latitude: "2.979720", type: hopital, district: lomme)
 
 # seeds Interest : Santé => Vétérinaies
 
