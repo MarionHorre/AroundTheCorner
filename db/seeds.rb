@@ -35,6 +35,7 @@ bus = Type.create(category: 'transport', name: 'bus')
 metro = Type.create(category: 'transport', name: 'metro')
 tram = Type.create(category: 'transport', name: 'tram')
 historical_monuments = Type.create(category: 'hobbies', name: 'historical monuments')
+movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
@@ -134,7 +135,12 @@ Interest.create!(address: "23 Rue Gosselet, 59000 Lille", longitude: "50.372159"
 Interest.create!(address: "32 Rue de la Monnaie, 59000 Lille", longitude: "50.382800", latitude: "3.034741", type: historical_monuments, district: vieux_lille)
 Interest.create!(address: "8 rue Princesse, 59000 Lille", longitude: "50.384524", latitude: "3.03316764", type: historical_monuments, district: vieux_lille)
 
-# Seeds Interest : Hobbies -->
+# Seeds Interest : Hobbies --> Cinémas
+Interest.create!(address: "40 Rue de Béthune, 59000 Lille", longitude: "50.3821527", latitude: "3.03479279", type: movie_theater, district: lille_centre)
+Interest.create!(address: "54 Rue de Béthune, 59000 Lille", longitude: "50.633577", latitude: "3.062750", type: movie_theater, district: lille_centre)
+Interest.create!(address: "26 Rue des Ponts de Comines, 59000 Lille", longitude: "50.636557", latitude: "3.067008", type: movie_theater, district: lille_centre)
+Interest.create!(address: "16 Rue Georges Danton, 59000 Lille", longitude: "50.623713", latitude: "3.074401", type: movie_theater, district: moulins)
+Interest.create!(address: "18 Rue Gosselet, 59000 Lille", longitude: "50.625981", latitude: "3.066018", type: movie_theater, district: lille_centre)
 
 # seeds Interest : Santé
 pharmacie = Type.create(category: 'santé', name: 'pharmacie')
