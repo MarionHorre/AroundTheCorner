@@ -39,14 +39,15 @@ class PolygoneMaker
     @hash.each do |key, value|
       return key if value.contains?(point)
     end
+    return nil
   end
 end
 
-maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
+# maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
 
-bois_blanc_vlille = Geokit::LatLng.new("50.634045", "3.030778")
+# bois_blanc_vlille = Geokit::LatLng.new("50.634045", "3.030778")
 
-p maker.which_city("50.633618", "3.067658")
+# p maker.which_city("50.633618", "3.067658")
 
 # points = []
 # bois_blanc_polygone.each do |set|
