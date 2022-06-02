@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2022_06_02_092015) do
 
   add_foreign_key "bookmarks", "houses"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "districts", "interests"
   add_foreign_key "houses", "districts"
   add_foreign_key "interests", "districts"
   add_foreign_key "interests", "types"
