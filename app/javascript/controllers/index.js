@@ -11,7 +11,6 @@ application.load(definitionsFromContext(context))
 
 // const next = document.getElementById('next');
 // const form_category = document.querySelectorAll(".form-category")
-const introCard = document.querySelector(".website-presentation")
 
 // next.addEventListener("click", (event) => {
 //   // je prévent le default du click du next step
@@ -31,9 +30,11 @@ const introCard = document.querySelector(".website-presentation")
 //   intro_card.classList.add("d-none")
 // })
 
+const introCard = document.querySelector(".website-presentation")
 const findDistrictButton = document.getElementById("find_district");
 const nextButton = document.getElementById("next");
 const previousButton =document.getElementById("previous");
+const activeForm = document.querySelector(".form-category");
 
 findDistrictButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -41,21 +42,31 @@ findDistrictButton.addEventListener("click", (event) => {
   findDistrictButton.classList.add("disable");
   introCard.classList.add("disable");
 
-  const activeForm = document.querySelector(".form-category");
-  activeForm.classList.remove("active");
+  // activeForm.classList.remove("active");
 
   activeForm.classList.add("active");
   nextButton.classList.add("active");
 })
 
-const activeForm = document.querySelector(".form-category")
+// const activeForm = document.querySelector(".form-category")
 
 nextButton.addEventListener("click", (event) => {
   event.preventDefault;
 
   activeForm.classList.remove("active");
+
   const nextCategory = activeForm.nextElementSibling;
   nextCategory.classList.add("active");
-  console.log(nextCategory)
-  previousButton.classList.add("active");
+  previousButton.classList
+  // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
+})
+
+previousButton.addEventListener("click", (event) => {
+  event.preventDefault;
+
+  activeForm.classList.remove("active");
+
+  const previousCategory = activeForm.previousElementSibling;
+  previousCategory.classList.add("active");
+
 })
