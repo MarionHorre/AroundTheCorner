@@ -9,6 +9,7 @@
     padding-bottom: 20px;
     font-weight: bolder;
     padding: 0px;
+    font-family: 'Lora';
   }
 }
 
@@ -16,7 +17,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 60px 0px;
+  padding: 60px 0px 70px 0px;
 
   .type{
     padding: 30px;
@@ -33,7 +34,6 @@
     border-radius: 20px;
     display: flex;
     justify-content: center;
-
   }
 }
 
@@ -45,4 +45,13 @@
   background-color: $grey;
   border: white;
   position: relative;
+}
+
+.type.active {
+  color: inherit;
+  border-color: inherit;
+}
+
+.form-check {
+  padding-left: 0;
 }

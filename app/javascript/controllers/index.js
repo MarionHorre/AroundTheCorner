@@ -135,3 +135,58 @@ function update() {
   //   nextButton.disabled = false;
   // }
 }
+
+
+// js card form
+
+// document.addEventListener("click", (event) => {
+//   // console.log("event", event);
+//   const choose = event.target;
+//   console.log("choose", choose);
+//   const selects = document.querySelectorAll(".type");
+//   selects.forEach((select) => {
+//     if ((choose === select) || (choose === select.children )) {
+//       select.classList.toggle('active');
+//       console.log("select", select)
+//       console.log(select.children)
+//     }
+//   });
+// });
+
+// const checkbox = document.querySelectorAll(".checkbox");
+
+const selects = document.querySelectorAll(".type");
+  selects.forEach((select) => {
+    select.addEventListener("click", (event) => {
+      select.classList.toggle('active');
+      const checkbox = select.querySelector(".checkbox");
+      if (checkbox.checked == true) {
+        checkbox.checked = false
+      } else {
+        checkbox.checked = true
+      }
+      console.log("checkbox 2", checkbox.checked)
+      console.log("select", select)
+    })
+
+  });
+
+
+
+
+
+
+
+
+
+// const cards = document.querySelectorAll(".type");
+
+// const toggleActiveClass = (toggle) => {
+//   toggle.currentTarget.classList.toggle("active");
+// };
+
+// const bindToClick = (form) => {
+//   form.addEventListener("click", toggleActiveClass);
+// };
+
+// cards.forEach(bindToClick);
