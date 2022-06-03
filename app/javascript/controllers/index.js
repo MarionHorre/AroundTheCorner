@@ -77,10 +77,9 @@ nextButton.addEventListener("click", (event) => {
   nextCategory.classList.add("active");
   activeForm = document.querySelector(".form-category.active")
 
-
   // let activeForm = document.querySelector(".form-category.active");
-  console.log("2", activeForm)
   previousButton.classList.add("active");
+
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
 
@@ -98,6 +97,7 @@ previousButton.addEventListener("click", (event) => {
   const previousCategory = activeForm.previousElementSibling;
   // console.log(previousCategory.classList)
   previousCategory.classList.add("active");
+  activeForm = document.querySelector(".form-category.active")
 
 })
 

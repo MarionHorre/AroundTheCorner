@@ -17,20 +17,20 @@
   <button id="find_district" class="btn btn-primary" data-progress-step-form-target="district" data-action="click->progress-step-form#removeButton">Trouve ton quartier !</button>
 
   <%= simple_form_for :search, url: recap_path, method: "GET" do |f|  %>
-    <div class="form-category first">
+    <div class="form-category">
       <%= f.label :transport %>
       <%= f.input :vlille, input_html: {name: 'transport[vlille]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :metro, input_html: {name: 'transport[métro]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :tramway, input_html: {name: 'transport[tramway]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :bus, input_html: {name: 'transport[bus]'}, as: :boolean, checked_value: true, unchecked_value: false %>
     </div>
-    <div class="form-category second">
+    <div class="form-category">
       <%= f.label :vie_quotidienne %>
       <%= f.input :supermarché, input_html: {name: 'vie quotidienne[supermarché]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :parc_à_jeux, input_html: {name: 'vie quotidienne[parc_à_jeux]'}, as: :boolean, checked_value: true, unchecked_value: false %>
     </div>
-    <div class="form-category third">
+    <div class="form-category ">
       <%= f.label :hobbies %>
       <%= f.input :monuments_historiques, input_html: {name: 'hobbies[historical_monuments]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :bibliothèque, input_html: {name: 'hobbies[bibliothèque]'}, as: :boolean, checked_value: true, unchecked_value: false %>
@@ -38,7 +38,7 @@
       <%= f.input :cinéma, input_html: {name: 'hobbies[cinéma]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :parc, input_html: {name: 'hobbies[parc]'}, as: :boolean, checked_value: true, unchecked_value: false %>
     </div>
-    <div class="form-category fourth">
+    <div class="form-category">
       <%= f.label :santé %>
       <%= f.input :hopital, input_html: {name: 'santé[hopital]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :vétérinaires, input_html: {name: 'santé[vétérinaires]'}, as: :boolean, checked_value: true, unchecked_value: false %>
