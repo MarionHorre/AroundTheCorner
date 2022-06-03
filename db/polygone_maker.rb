@@ -41,7 +41,9 @@ class PolygoneMaker
     end
     return nil
   end
-end
+
+
+
 
 # maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
 
