@@ -23,6 +23,11 @@
     color: $dark-green;
     padding: 8px;
 
+    h2 {
+      width: 20%;
+      margin: 0 24px;
+    }
+
   }
   .card_cards {
     display: flex;
@@ -35,9 +40,9 @@
     background-color: white;
     border: rgb(125, 125, 125) 1px solid;
     border-radius: 10px;
-    height: 400px;
+    height: 450px;
     width: 20%;
-    padding: 8px;
+    padding: 40px;
     margin: 8px 24px;
     display: inline-grid;
 
