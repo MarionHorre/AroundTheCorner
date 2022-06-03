@@ -44,8 +44,6 @@ const circles = document.querySelectorAll('.form-circle-bar');
 const progress = document.getElementById('progress');
 const progressBar = document.getElementById("progress-bar")
 
-
-
 // div de la card du questionnaire
 const cardPage = document.querySelector(".card-page")
 
@@ -90,6 +88,8 @@ nextButton.addEventListener("click", (event) => {
   // let activeForm = document.querySelector(".form-category.active");
   previousButton.classList.add("active");
 
+  progressBar.value += 25
+  // progressBar.setAttribute(0, 25)
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
 
@@ -108,6 +108,8 @@ previousButton.addEventListener("click", (event) => {
   // console.log(previousCategory.classList)
   previousCategory.classList.add("active");
   activeForm = document.querySelector(".form-category.active")
+
+  progressBar.value -= 25
 
 })
 
