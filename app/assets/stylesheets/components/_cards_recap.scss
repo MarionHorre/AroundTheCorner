@@ -1,0 +1,43 @@
+.recap_title {
+  text-align: center;
+  padding: 28px;
+
+  h1 {
+    font-weight: bold;
+  }
+}
+.card_recap {
+  padding-top: 15px 130px;
+  margin: 25px 0;
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px RGB(0 0 0 / 20%);
+  background-color: #F7F7F7;
+  border: white;
+
+  .card_recap_titles {
+    display: flex;
+    text-align: center;
+    height: 44px;
+    width: 100%;
+    justify-content: space-around;
+    color: $dark-green;
+
+  }
+  .card_cards {
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+
+  .card_recap_category_card {
+    background-color: white;
+    border: rgb(125, 125, 125) 1px solid;
+    border: 10px;
+    height: 100px;
+    width: 20%;
+    padding: 8px;
+    margin: 8px 24px;
+  }
+
+}
