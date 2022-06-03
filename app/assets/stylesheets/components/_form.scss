@@ -31,6 +31,8 @@
   margin-bottom: 30px;
   max-width: 100%;
   width: 350px;
+  right: -30%;
+  margin-top: 2rem;
 }
 
 .progress-container::before {
@@ -53,24 +55,51 @@
   transform: translateY(-50%);
   height: 4px;
   width: 0%;
-  z-index: -1;
+  z-index: -2;
   transition: 0.4s ease;
 }
 
 .form-circle-bar {
-  background-color: white;
-  color: #999;
+  background-color: $light-green;
+  // color: #999;
   border-radius: 50%;
   height: 30px;
   width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid;
+  // border: 3px solid;
   transition: .4s ease;
+  z-index: 1;
 }
 
 .form-circle-bar.active {
-  border-color:  $dark-green;
-  background-color: $dark-green;
+  border-color:  $medium-green;
+  background-color: $medium-green;
 }
+
+#progress-bar {
+  position: absolute;
+  font-size: 1rem;
+  top: 25%;
+  width: 100%;
+}
+
+progress {
+  accent-color: $medium-green;
+}
+
+// progress[value] {
+//   width: 250px;
+//   height: 16px;
+//   z-index: -2;
+// }
+
+// progress[value] {
+//   -webkit-appearance: none;
+//   appearance: none;
+// }
+
+// progress[value]::-webkit-progress-bar {
+//   background-color: "green";
+// }
