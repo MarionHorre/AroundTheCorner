@@ -27,6 +27,7 @@
     h2 {
       width: 20%;
       margin: 0 24px;
+      font-weight: bold;
     }
 
   }
@@ -46,9 +47,9 @@
     padding: 40px;
     margin: 8px 24px;
     display: inline-grid;
-    color: $medium-green;
+    text-align: center;
 
-    img {
+    i {
       width:44px;
       height: 40px;
       justify-self: center;
@@ -56,7 +57,27 @@
 
     p {
       text-align: center;
+      color: $medium-green;
+      font-weight: 300;
     }
   }
 
+  .card_recap_buttons {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 16px;
+
+    button {
+    bottom: 10px;
+    left: 44%;
+    background-color: $medium-green;
+    border-radius: 5px;
+    width: 140px;
+    text-align: center;
+    padding: 8px;
+    border: none;
+    color: white;
+    }
+  }
 }
