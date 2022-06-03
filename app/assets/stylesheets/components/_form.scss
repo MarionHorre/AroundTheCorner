@@ -21,3 +21,56 @@
 .website-presentation.disable {
   display: none;
 }
+
+// code pour la progress bar
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: $medium-green;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 25%;
+  z-index: -1;
+}
+
+.progress-bar {
+  background-color: $dark-green;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.form-circle-bar {
+  background-color: white;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid;
+  transition: .4s ease;
+}
+
+.form-circle-bar.active {
+  border-color:  $dark-green;
+  background-color: $dark-green;
+}

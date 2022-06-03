@@ -30,11 +30,21 @@ application.load(definitionsFromContext(context))
 //   intro_card.classList.add("d-none")
 // })
 
+
+// div de la card d'introduction et son boutton
 const introCard = document.querySelector(".website-presentation")
 const findDistrictButton = document.getElementById("find_district");
+
+// button suivant/précédant
 const nextButton = document.getElementById("next");
-const previousButton =document.getElementById("previous");
-const activeForm = document.querySelector(".form-category");
+const previousButton = document.getElementById("previous");
+
+// cercle de la progress bar
+const circles = document.querySelectorAll('.form-circle-bar');
+const progress = document.getElementById('progress');
+
+// div d'une partie du questionnaire
+let activeForm = document.querySelector(".form-category");
 
 findDistrictButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -50,23 +60,68 @@ findDistrictButton.addEventListener("click", (event) => {
 
 // const activeForm = document.querySelector(".form-category")
 
+let currentActive = 1;
+
 nextButton.addEventListener("click", (event) => {
   event.preventDefault;
+  currentActive++;
+
+  if(currentActive > circles.length) {
+    currentActive = circles.length;
+  }
+  update()
 
   activeForm.classList.remove("active");
 
   const nextCategory = activeForm.nextElementSibling;
   nextCategory.classList.add("active");
-  previousButton.classList
+  activeForm = document.querySelector(".form-category.active")
+
+  // let activeForm = document.querySelector(".form-category.active");
+  previousButton.classList.add("active");
+
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
 
 previousButton.addEventListener("click", (event) => {
   event.preventDefault;
 
+  currentActive--;
+  if(currentActive < 1) {
+      currentActive = 1;
+  }
+  update()
+
   activeForm.classList.remove("active");
 
   const previousCategory = activeForm.previousElementSibling;
+  // console.log(previousCategory.classList)
   previousCategory.classList.add("active");
+  activeForm = document.querySelector(".form-category.active")
 
 })
+
+
+
+function update() {
+  circles.forEach(function(circle, idx) {
+      if(idx < currentActive) {
+          circle.classList.add('active');
+      } else {
+          circle.classList.remove('active');
+      }
+  })
+
+  const actives = document.querySelectorAll('.active');
+
+  progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%';
+
+  // if(currentActive === 1) {
+  //   previousButton.disabled = true;
+  // } else if (currentActive === circles.length) {
+  //   nextButton.disabled = true;
+  // } else {
+  //   previousButton.disabled = false;
+  //   nextButton.disabled = false;
+  // }
+}

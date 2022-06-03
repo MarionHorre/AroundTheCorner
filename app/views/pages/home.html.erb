@@ -12,11 +12,9 @@
     <p><img src="https://www.cjoint.com/doc/22_06/LFcoQbQlANl_33-332887-flechas-en-png-fleche-droite-png-transparent-png.png">Choisissez la maison de vos rêves.</p>
   </div>
 
-<div class="form-card">
+<div class="form-card" data-controller="progress-step-form">
 
-  <button id="find_district" class="btn btn-primary">Trouve ton quartier !</button>
-  <button id="previous" class="btn btn-primary form-button">Précédent</button>
-  <button id="next" class="btn btn-primary form-button">Suivant</button>
+  <button id="find_district" class="btn btn-primary" data-progress-step-form-target="district" data-action="click->progress-step-form#removeButton">Trouve ton quartier !</button>
 
   <%= simple_form_for :search, url: recap_path, method: "GET" do |f|  %>
     <div class="form-category">
@@ -32,7 +30,7 @@
       <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :parc_à_jeux, input_html: {name: 'vie quotidienne[parc_à_jeux]'}, as: :boolean, checked_value: true, unchecked_value: false %>
     </div>
-    <div class="form-category">
+    <div class="form-category ">
       <%= f.label :hobbies %>
       <%= f.input :monuments_historiques, input_html: {name: 'hobbies[historical_monuments]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       <%= f.input :bibliothèque, input_html: {name: 'hobbies[bibliothèque]'}, as: :boolean, checked_value: true, unchecked_value: false %>
@@ -48,4 +46,16 @@
     </div>
     <%= f.submit "Résumé", class: "form-category" %>
   <% end %>
+
+    <div class="progress-wrapper">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+        <div class="form-circle-bar active"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+      </div>
+      <button id="previous" class="btn btn-primary form-button">Précédent</button>
+      <button id="next" class="btn btn-primary form-button">Suivant</button>
+  </div>
 </div>
