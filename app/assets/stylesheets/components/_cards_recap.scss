@@ -1,6 +1,6 @@
 .recap_title {
   text-align: center;
-  padding: 28px;
+  padding-top: 36px;
 
   h1 {
     font-weight: bold;
@@ -8,7 +8,7 @@
 }
 .card_recap {
   padding-top: 15px 130px;
-  margin: 25px 0;
+  margin: 35px 0;
   border-radius: 10px;
   box-shadow: 1px 3px 3px RGB(0 0 0 / 20%);
   background-color: #F7F7F7;
@@ -20,8 +20,9 @@
     height: 44px;
     width: 100%;
     justify-content: space-around;
-    color: $dark-green;
-    padding: 8px;
+    color: $medium-green;
+    padding: 12px;
+    margin: 10px 0px;
 
     h2 {
       width: 20%;
@@ -45,6 +46,7 @@
     padding: 40px;
     margin: 8px 24px;
     display: inline-grid;
+    color: $medium-green;
 
     img {
       width:44px;
