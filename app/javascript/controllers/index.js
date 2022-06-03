@@ -88,7 +88,7 @@ nextButton.addEventListener("click", (event) => {
   // let activeForm = document.querySelector(".form-category.active");
   previousButton.classList.add("active");
 
-  progressBar.value += 25
+  progressBar.value += 34
   // progressBar.setAttribute(0, 25)
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
@@ -109,7 +109,7 @@ previousButton.addEventListener("click", (event) => {
   previousCategory.classList.add("active");
   activeForm = document.querySelector(".form-category.active")
 
-  progressBar.value -= 25
+  progressBar.value -= 34
 
 })
 
