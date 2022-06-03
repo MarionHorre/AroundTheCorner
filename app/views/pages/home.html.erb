@@ -11,10 +11,10 @@
 
     <p><img src="https://www.cjoint.com/doc/22_06/LFcoQbQlANl_33-332887-flechas-en-png-fleche-droite-png-transparent-png.png">Choisissez la maison de vos rêves.</p>
   </div>
-
+  <button id="find_district"><strong>Trouve ton quartier !</strong></button>
   <div class="form-card">
 
-    <button id="find_district"><strong>Trouve ton quartier !</strong></button>
+
     <div class="card-page">
       <button id="previous" class="form-button">Précédent</button>
       <button id="next" class="btn btn-primary form-button">Suivant</button>
@@ -24,42 +24,83 @@
       <div class="card form-category">
         <div class="col-sm-12">
           <h2>Quel sont vos moyens de transport ?</h2>
-            <div class="card-transport">
-            <%#= f.label :transport %>
-              <div class="type">
-                <%= f.input :vlille, input_html: {name: 'transport[vlille]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <%= f.input :metro, input_html: {name: 'transport[métro]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <%= f.input :tramway, input_html: {name: 'transport[tramway]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <%= f.input :bus, input_html: {name: 'transport[bus]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
+          <div class="card-category">
+          <%#= f.label :transport %>
+            <div class="type">
+              <%= f.input :vlille, input_html: {name: 'transport[vlille]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :metro, input_html: {name: 'transport[métro]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :tramway, input_html: {name: 'transport[tramway]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :bus, input_html: {name: 'transport[bus]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
           </div>
         </div>
       </div>
       <div class="card form-category">
-        <%= f.label :vie_quotidienne %>
-        <%= f.input :supermarché, input_html: {name: 'vie quotidienne[supermarché]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :parc_à_jeux, input_html: {name: 'vie quotidienne[parc_à_jeux]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+        <div class="col-sm-12">
+          <h2>Que prioritisez-vous au quotidien ?</h2>
+          <div class="card-category">
+            <%#= f.label :vie_quotidienne %>
+            <div class="type">
+              <%= f.input :supermarché, input_html: {name: 'vie quotidienne[supermarché]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :parc_à_jeux, input_html: {name: 'vie quotidienne[parc_à_jeux]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
       </div>
+
+
       <div class="card form-category">
-        <%= f.label :hobbies %>
-        <%= f.input :monuments_historiques, input_html: {name: 'hobbies[historical_monuments]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :bibliothèque, input_html: {name: 'hobbies[bibliothèque]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :piscine, input_html: {name: 'hobbies[piscine]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :cinéma, input_html: {name: 'hobbies[cinéma]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :parc, input_html: {name: 'hobbies[parc]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+        <div class="col-sm-12">
+          <h2>Qu’aimeriez-vous avoir à quelques pas de chez vous?</h2>
+          <div class="card-category">
+          <%#= f.label :hobbies %>
+            <div class="type">
+              <%= f.input :monuments_historiques, input_html: {name: 'hobbies[historical_monuments]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :bibliothèque, input_html: {name: 'hobbies[bibliothèque]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :piscine, input_html: {name: 'hobbies[piscine]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :cinéma, input_html: {name: 'hobbies[cinéma]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :parc, input_html: {name: 'hobbies[parc]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
       </div>
+
+
       <div class="card form-category">
-        <%= f.label :santé %>
-        <%= f.input :hopital, input_html: {name: 'santé[hopital]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :vétérinaires, input_html: {name: 'santé[vétérinaires]'}, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :pharmacie, input_html: {name: 'santé[pharmacie]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+        <div class="col-sm-12">
+          <h2>Ne négligeons pas la santé...</h2>
+          <div class="card-category">
+            <%#= f.label :santé %>
+            <div class="type">
+              <%= f.input :hopital, input_html: {name: 'santé[hopital]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :vétérinaires, input_html: {name: 'santé[vétérinaires]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <%= f.input :pharmacie, input_html: {name: 'santé[pharmacie]'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
       </div>
       <%= f.submit "Résumé", class: "form-category" %>
     <% end %>
