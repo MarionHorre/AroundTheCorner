@@ -1,0 +1,23 @@
+.form-category {
+  display: none;
+}
+
+.form-category.active {
+  display: initial;
+}
+
+.form-button {
+  display: none;
+}
+
+.form-button.active {
+  display: initial;
+}
+
+#find_district.disable {
+  display: none;
+}
+
+.website-presentation.disable {
+  display: none;
+}
