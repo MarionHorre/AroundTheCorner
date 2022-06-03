@@ -62,7 +62,17 @@
         <%= f.input :pharmacie, input_html: {name: 'santé[pharmacie]'}, as: :boolean, checked_value: true, unchecked_value: false %>
       </div>
       <%= f.submit "Résumé", class: "form-category" %>
-    <% end %>
+    <% end 
+        <div class="progress-wrapper">
+      <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+        <div class="form-circle-bar active"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+      </div>
+      <button id="previous" class="btn btn-primary form-button">Précédent</button>
+      <button id="next" class="btn btn-primary form-button">Suivant</button>
     </div>
   </div>
 </div>
