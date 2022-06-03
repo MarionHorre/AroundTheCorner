@@ -43,6 +43,10 @@ const previousButton = document.getElementById("previous");
 const circles = document.querySelectorAll('.form-circle-bar');
 const progress = document.getElementById('progress');
 
+
+// div de la card du questionnaire
+const cardPage = document.querySelector(".card-page")
+
 // div d'une partie du questionnaire
 let activeForm = document.querySelector(".form-category");
 
@@ -53,7 +57,7 @@ findDistrictButton.addEventListener("click", (event) => {
   introCard.classList.add("disable");
 
   // activeForm.classList.remove("active");
-
+  cardPage.classList.remove("d-none")
   activeForm.classList.add("active");
   nextButton.classList.add("active");
 })

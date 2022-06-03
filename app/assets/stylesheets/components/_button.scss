@@ -12,7 +12,20 @@
 #next {
   position: absolute;
   bottom: 10px;
-  left: 44%;
+  left: 56%;
+  background-color: $medium-green;
+  border-radius: 5px;
+  width: 140px;
+  text-align: center;
+  padding: 8px;
+  border: none;
+  color: white;
+}
+
+#previous {
+  position: absolute;
+  bottom: 10px;
+  right: 56%;
   background-color: $medium-green;
   border-radius: 5px;
   width: 140px;

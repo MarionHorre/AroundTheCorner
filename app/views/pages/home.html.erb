@@ -15,9 +15,17 @@
   <div class="form-card">
 
     <button id="find_district"><strong>Trouve ton quartier !</strong></button>
-    <div class="card-page">
-      <button id="previous" class="form-button">Précédent</button>
-      <button id="next" class="btn btn-primary form-button">Suivant</button>
+    <div class="card-page d-none">
+      <%# <button id="previous" class="form-button">Précédent</button>
+      <button id="next" class="btn btn-primary form-button">Suivant</button> %>
+
+      <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+        <div class="form-circle-bar active"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+      </div>
 
       <%= simple_form_for :search, url: recap_path, method: "GET" do |f|  %>
 
@@ -63,14 +71,7 @@
       </div>
       <%= f.submit "Résumé", class: "form-category" %>
     <% end %>
-        <div class="progress-wrapper">
-      <div class="progress-container">
-        <div class="progress-bar" id="progress"></div>
-        <div class="form-circle-bar active"></div>
-        <div class="form-circle-bar"></div>
-        <div class="form-circle-bar"></div>
-        <div class="form-circle-bar"></div>
-      </div>
+    <div class="progress-wrapper">
       <button id="previous" class="btn btn-primary form-button">Précédent</button>
       <button id="next" class="btn btn-primary form-button">Suivant</button>
     </div>
