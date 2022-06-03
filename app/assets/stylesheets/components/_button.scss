@@ -1,0 +1,23 @@
+#find_district {
+  background-color: $medium-green;
+  border-radius: 5px;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  color: white;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);;
+}
+
+#next {
+  position: absolute;
+  bottom: 10px;
+  left: 44%;
+  background-color: $medium-green;
+  border-radius: 5px;
+  width: 140px;
+  text-align: center;
+  padding: 8px;
+  border: none;
+  color: white;
+}
