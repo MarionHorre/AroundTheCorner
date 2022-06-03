@@ -42,6 +42,12 @@ const previousButton = document.getElementById("previous");
 // cercle de la progress bar
 const circles = document.querySelectorAll('.form-circle-bar');
 const progress = document.getElementById('progress');
+const progressBar = document.getElementById("progress-bar")
+
+
+
+// div de la card du questionnaire
+const cardPage = document.querySelector(".card-page")
 
 // div d'une partie du questionnaire
 let activeForm = document.querySelector(".form-category");
@@ -53,14 +59,18 @@ findDistrictButton.addEventListener("click", (event) => {
   introCard.classList.add("disable");
 
   // activeForm.classList.remove("active");
-
+  cardPage.classList.remove("d-none")
   activeForm.classList.add("active");
   nextButton.classList.add("active");
 })
 
 // const activeForm = document.querySelector(".form-category")
 
+// permet de calculer l'avancement des cercles
 let currentActive = 1;
+
+// permet de calculer l'avancement de la bar de progression
+let progressionBar = 0;
 
 nextButton.addEventListener("click", (event) => {
   event.preventDefault;
