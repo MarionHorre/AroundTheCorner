@@ -81,5 +81,23 @@
     border: none;
     color: white;
     }
+
+    a {
+      bottom: 10px;
+      left: 44%;
+      background-color: $medium-green;
+      border-radius: 5px;
+      width: 140px;
+      text-align: center;
+      padding: 8px;
+      border: none;
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        color: white;
+      }
+    }
+
   }
 }
