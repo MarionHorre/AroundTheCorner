@@ -88,8 +88,9 @@ nextButton.addEventListener("click", (event) => {
   // let activeForm = document.querySelector(".form-category.active");
   previousButton.classList.add("active");
 
-  progressBar.value += 34
-  // progressBar.setAttribute(0, 25)
+  progressBar.value += 33
+  console.log(progressBar.value)
+  progressBar.value === 100 ? nextButton.remove("active") : ""
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
 
