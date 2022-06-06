@@ -4,6 +4,9 @@ class HousesController < ApplicationController
   require 'nokogiri'
 
   def index
+    # c'est pour vérifier si on récupère bien les params de district, puis a retirer
+    @houses_params = params["house"]
+
     @houses = House.all
 
     # récupérer les bons paramètres pour district et price
