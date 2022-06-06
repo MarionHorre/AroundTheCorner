@@ -3,7 +3,7 @@
     <h1>Voici ce que vous avez sélectionné : </h1>
   </div>
 
-  <div class="card_recap">
+  <div class="card_recap col-sm-12">
     <div class="card_recap_titles">
       <h2>Transports</h2>
       <h2>Commerces</h2>
@@ -13,6 +13,7 @@
 
     <div class="card_cards">
       <div class="card_recap_category_card">
+        <% if @params["transport"] %>
         <div class="<%= !@params["transport"]["bus"] ? "d-none" : "" %>">
           <i class="fas fa-bus-alt fa-2x"></i>
           <p>Bus</p>
@@ -29,8 +30,10 @@
           <i class="fas fa-tram fa-2x"></i>
           <p>Tramway</p>
         </div>
+        <% end %>
       </div>
       <div class="card_recap_category_card">
+      <% if @params["vie quotidienne"] %>
         <div class="<%= !@params["vie quotidienne"]["supermarché"] ? "d-none" : "" %>">
           <i class="fas fa-store fa-2x"></i>
           <p>Supermarché</p>
@@ -43,9 +46,10 @@
           <i class="fas fa-child fa-2x"></i>
           <p>Aire de jeux</p>
         </div>
-
+        <% end %>
       </div>
       <div class="card_recap_category_card">
+      <% if @params ["hobbies"] %>
         <div class="<%= !@params["hobbies"]["bibliothèque"] ? "d-none" : "" %>">
           <i class="fas fa-book fa-2x"></i>
           <p>Bibliothèque</p>
@@ -66,8 +70,10 @@
           <i class="fas fa-film fa-2x"></i>
           <p>Cinéma</p>
         </div>
+        <% end %>
       </div>
       <div class="card_recap_category_card">
+      <% if @params ["santé"] %>
         <div class="<%= !@params["santé"]["pharmacie"] ? "d-none" : "" %>">
           <i class="fas fa-pills fa-2x"></i>
           <p>Pharmacie</p>
@@ -80,8 +86,10 @@
           <i class="fas fa-paw fa-2x"></i>
           <p>Vétérinaire</p>
         </div>
+        <% end %>
       </div>
     </div>
+
     <div class="card_recap_buttons">
       <%= link_to "Précédent", root_path %>
       <%= link_to "Suivant", districts_path %>

@@ -17,6 +17,7 @@
 
   .card_recap_titles {
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     height: 44px;
     width: 100%;
@@ -36,6 +37,7 @@
   .card_cards {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
 
@@ -49,6 +51,7 @@
     padding: 40px;
     margin: 8px 24px;
     display: inline-grid;
+    flex-wrap: wrap;
     text-align: center;
 
     i {
