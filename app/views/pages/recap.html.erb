@@ -13,45 +13,73 @@
 
     <div class="card_cards">
       <div class="card_recap_category_card">
-        <i class="fas fa-bus-alt fa-2x"></i>
-        <p>Bus</p>
-        <i class="fas fa-bicycle fa-2x"></i>
-        <p>V-Lille</p>
-        <i class="fas fa-subway fa-2x"></i>
-        <p>Metro</p>
-        <i class="fas fa-tram fa-2x"></i>
-        <p>Tramway</p>
+        <div class="<%= !@params["transport"]["bus"] ? "d-none" : "" %>">
+          <i class="fas fa-bus-alt fa-2x"></i>
+          <p>Bus</p>
+        </div>
+        <div class="<%= !@params["transport"]["vlille"] ? "d-none" : "" %>">
+          <i class="fas fa-bicycle fa-2x"></i>
+          <p>V-Lille</p>
+        </div>
+        <div class="<%= !@params["transport"]["métro"] ? "d-none" : "" %>">
+          <i class="fas fa-subway fa-2x"></i>
+          <p>Metro</p>
+        </div>
+        <div class="<%= !@params["transport"]["tramway"] ? "d-none" : "" %>">
+          <i class="fas fa-tram fa-2x"></i>
+          <p>Tramway</p>
+        </div>
       </div>
       <div class="card_recap_category_card">
-        <i class="fas fa-store fa-2x"></i>
-        <p>Supermarché</p>
-        <i class="fas fa-school fa-2x"></i>
-        <p>École</p>
-        <i class="fas fa-child fa-2x"></i>
-        <p>Aire de jeux</p>
+        <div class="<%= !@params["vie quotidienne"]["supermarché"] ? "d-none" : "" %>">
+          <i class="fas fa-store fa-2x"></i>
+          <p>Supermarché</p>
+        </div>
+        <div class="<%= !@params["vie quotidienne"]["école"] ? "d-none" : "" %>">
+          <i class="fas fa-school fa-2x"></i>
+          <p>École</p>
+        </div>
+        <div class="<%= !@params["vie quotidienne"]["parc_à_jeux"] ? "d-none" : "" %>">
+          <i class="fas fa-child fa-2x"></i>
+          <p>Aire de jeux</p>
+        </div>
 
       </div>
       <div class="card_recap_category_card">
-        <i class="fas fa-book fa-2x"></i>
-         <p>Bibliothèque</p>
-         <i class="fas fa-swimmer fa-2x"></i>
-         <p>Piscine</p>
-         <i class="fas fa-university fa-2x"></i>
-         <p>Musée</p>
-         <i class="fas fa-tree fa-2x"></i>
-         <p>Parc</p>
-         <i class="fas fa-film fa-2x"></i>
-         <p>Cinéma</p>
-
+        <div class="<%= !@params["hobbies"]["bibliothèque"] ? "d-none" : "" %>">
+          <i class="fas fa-book fa-2x"></i>
+          <p>Bibliothèque</p>
+        </div>
+        <div class="<%= !@params["hobbies"]["piscine"] ? "d-none" : "" %>">
+          <i class="fas fa-swimmer fa-2x"></i>
+          <p>Piscine</p>
+        </div>
+        <div class="<%= !@params["hobbies"]["historical_monument"] ? "d-none" : "" %>">
+          <i class="fas fa-university fa-2x"></i>
+          <p>Musée</p>
+        </div>
+        <div class="<%= !@params["hobbies"]["parc"] ? "d-none" : "" %>">
+          <i class="fas fa-tree fa-2x"></i>
+          <p>Parc</p>
+        </div>
+        <div class="<%= !@params["hobbies"]["cinéma"] ? "d-none" : "" %>">
+          <i class="fas fa-film fa-2x"></i>
+          <p>Cinéma</p>
+        </div>
       </div>
       <div class="card_recap_category_card">
-        <i class="fas fa-pills fa-2x"></i>
-        <p>Pharmacie</p>
-        <i class="fas fa-hospital fa-2x"></i>
-        <p>Hôpital</p>
-        <i class="fas fa-paw fa-2x"></i>
-        <p>Vétérinaire</p>
-
+        <div class="<%= !@params["santé"]["pharmacie"] ? "d-none" : "" %>">
+          <i class="fas fa-pills fa-2x"></i>
+          <p>Pharmacie</p>
+        </div>
+        <div class="<%= !@params["santé"]["hopital"] ? "d-none" : "" %>">
+          <i class="fas fa-hospital fa-2x"></i>
+          <p>Hôpital</p>
+        </div>
+        <div class="<%= !@params["santé"]["vétérinaire"] ? "d-none" : "" %>">
+          <i class="fas fa-paw fa-2x"></i>
+          <p>Vétérinaire</p>
+        </div>
       </div>
     </div>
     <div class="card_recap_buttons">
@@ -59,6 +87,5 @@
       <%= link_to "Suivant", districts_path %>
     </div>
   </div>
-
-<%# <%= @params %>
+</div>
 </div>
