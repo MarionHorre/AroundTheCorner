@@ -26,7 +26,7 @@
           <i class="fas fa-subway fa-2x"></i>
           <p>Metro</p>
         </div>
-        <div class="<%= !@params["transport"]["tramway"] ? "d-none" : "" %>">
+        <div class="<%= !@params["transport"]["tram"] ? "d-none" : "" %>">
           <i class="fas fa-tram fa-2x"></i>
           <p>Tramway</p>
         </div>
@@ -42,7 +42,7 @@
           <i class="fas fa-school fa-2x"></i>
           <p>École</p>
         </div>
-        <div class="<%= !@params["vie quotidienne"]["parc_à_jeux"] ? "d-none" : "" %>">
+        <div class="<%= !@params["vie quotidienne"]["parc à jeux"] ? "d-none" : "" %>">
           <i class="fas fa-child fa-2x"></i>
           <p>Aire de jeux</p>
         </div>
@@ -50,23 +50,23 @@
       </div>
       <div class="card_recap_category_card">
       <% if @params ["hobbies"] %>
-        <div class="<%= !@params["hobbies"]["bibliothèque"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["library"] ? "d-none" : "" %>">
           <i class="fas fa-book fa-2x"></i>
           <p>Bibliothèque</p>
         </div>
-        <div class="<%= !@params["hobbies"]["piscine"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["swimming_pool"] ? "d-none" : "" %>">
           <i class="fas fa-swimmer fa-2x"></i>
           <p>Piscine</p>
         </div>
-        <div class="<%= !@params["hobbies"]["historical_monument"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["historical monuments"] ? "d-none" : "" %>">
           <i class="fas fa-university fa-2x"></i>
           <p>Musée</p>
         </div>
-        <div class="<%= !@params["hobbies"]["parc"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["parcs"] ? "d-none" : "" %>">
           <i class="fas fa-tree fa-2x"></i>
           <p>Parc</p>
         </div>
-        <div class="<%= !@params["hobbies"]["cinéma"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["movie_theater"] ? "d-none" : "" %>">
           <i class="fas fa-film fa-2x"></i>
           <p>Cinéma</p>
         </div>
@@ -78,7 +78,7 @@
           <i class="fas fa-pills fa-2x"></i>
           <p>Pharmacie</p>
         </div>
-        <div class="<%= !@params["santé"]["hopital"] ? "d-none" : "" %>">
+        <div class="<%= !@params["santé"]["hôpital"] ? "d-none" : "" %>">
           <i class="fas fa-hospital fa-2x"></i>
           <p>Hôpital</p>
         </div>
