@@ -31,6 +31,9 @@ application.load(definitionsFromContext(context))
 // })
 
 
+let cookies = document.cookie;
+console.log("cookie", cookies)
+
 // div de la card d'introduction et son boutton
 const introCard = document.querySelector(".website-presentation")
 const findDistrictButton = document.getElementById("find_district");
@@ -184,10 +187,7 @@ const selects = document.querySelectorAll(".type");
       } else {
         checkbox.checked = true
       }
-      console.log("checkbox 2", checkbox.checked)
-      console.log("select", select)
     })
-
   });
 
 

@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def recap
     @params = params
+    session[:params] = @params
   end
 
 end
