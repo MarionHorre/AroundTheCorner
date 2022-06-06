@@ -88,10 +88,15 @@ nextButton.addEventListener("click", (event) => {
   // let activeForm = document.querySelector(".form-category.active");
   previousButton.classList.add("active");
 
+  const submitFormButton = document.querySelector(".form-category.submit-button");
+
   progressBar.value += 33;
-  progressBar.value === 100 ? nextButton.classList.remove("active") : "";
+  progressBar.value === 99 ? nextButton.classList.remove("active") : "";
+  progressBar.value === 99 ? submitFormButton.classList.add("active") : "";
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
+
+
 
 previousButton.addEventListener("click", (event) => {
   event.preventDefault;
