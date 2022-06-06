@@ -45,7 +45,7 @@
             </div>
             <div class="type">
               <i class="fas fa-tram fa-2x pb-2"></i>
-              <%= f.input :tramway, input_html: {name: 'transport[tramway]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :tramway, input_html: {name: 'transport[tram]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="type">
               <i class="fas fa-bus-alt fa-2x pb-2"></i>
@@ -69,7 +69,7 @@
             </div>
             <div class="type">
               <i class="fas fa-child fa-2x pb-2"></i>
-              <%= f.input :aire_de_jeux, input_html: {name: 'vie quotidienne[aire_de_jeux]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :aire_de_jeux, input_html: {name: 'vie quotidienne[parc à jeux]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
           </div>
         </div>
@@ -83,23 +83,23 @@
           <%#= f.label :hobbies %>
             <div class="type">
               <i class="fas fa-university fa-2x pb-2"></i>
-              <%= f.input :musée, input_html: {name: 'hobbies[musée]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :musée, input_html: {name: 'hobbies[historical monuments]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="type">
               <i class="fas fa-book fa-2x pb-2"></i>
-              <%= f.input :bibliothèque, input_html: {name: 'hobbies[bibliothèque]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :bibliothèque, input_html: {name: 'hobbies[library]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="type">
               <i class="fas fa-swimmer fa-2x pb-2"></i>
-              <%= f.input :piscine, input_html: {name: 'hobbies[piscine]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :piscine, input_html: {name: 'hobbies[swimming_pool]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="type">
               <i class="fas fa-film fa-2x pb-2"></i>
-              <%= f.input :cinéma, input_html: {name: 'hobbies[cinéma]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :cinéma, input_html: {name: 'hobbies[movie_theater]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="type">
               <i class="fas fa-tree fa-2x pb-2"></i>
-              <%= f.input :parc, input_html: {name: 'hobbies[parc]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :parc, input_html: {name: 'hobbies[parcs]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@
             <%#= f.label :santé %>
             <div class="type">
               <i class="fas fa-hospital fa-2x pb-2"></i>
-              <%= f.input :hopital, input_html: {name: 'santé[hopital]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :hopital, input_html: {name: 'santé[hôpital]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="type">
               <i class="fas fa-paw fa-2x pb-2"></i>
