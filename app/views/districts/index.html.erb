@@ -6,7 +6,7 @@
   <%= @district_params  %>
 
   <div class="cards-districts">
-    <% @districts.each do |district| %>
+    <% @top_3_districts.each do |district| %>
     <%# On va donner une id à chaque district pour selectionner la bonne ensuite en js %>
       <div id="<%= district.id %>" class="card-district">
         <a href="#"></a>
