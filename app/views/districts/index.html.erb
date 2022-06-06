@@ -38,10 +38,14 @@
 
   <div class="container">
     <%= simple_form_for :search, url: houses_path, method: "GET" do |f|  %>
-      <%= f.input :prix, input_html: {name: 'house[price]', class: ''}, as: :boolean, checked_value: true, unchecked_value: false%>
-      <%= f.input :nombre_de_pièces, input_html: { min: 0 , max: 10, step: 1, name: 'house[number_of_room]', class: ''}%>
-      <%= f.input :superficie, input_html: {name: 'house[square_meter]', class: ''}, as: :boolean, checked_value: true, unchecked_value: false %>
+      <div class="price-is-right">
+        <%= f.input :prix_min, input_html: {name: 'house[min_price]', class: ''}%>
+        <%= f.input :prix_max, input_html: {name: 'house[max_price]', class: ''}%>
+      </div>
+      <%= f.input :nombre_de_pièces, input_html: { min: 0, max: 10, step: 1, value: 3, name: 'house[number_of_room]', class: ''}, as: :range, min: 0, max: 10%>
+      <%= f.input :superficie, input_html: {min: 0, max: 250, step: 1, value: 65, name: 'house[square_meter]', class: ''}, as: :range, min: 0, max: 250 %>
       <%= f.submit "Lancé la recherche", class: ""  %>
     <% end %>
   </div>
+
 </div>
