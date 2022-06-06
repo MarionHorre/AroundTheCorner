@@ -31,16 +31,34 @@
   </div>
 
   <div class="map-quartier">
+    <%# faire la modale vers carte  %>
     <button>Cartes des quartiers</button>
   </div>
 
 
-  <div class="container d-none">
-  <%= simple_form_for :search, url: houses_path, method: "GET" do |f|  %>
-    <%= f.input :vlille, input_html: {name: 'transport[vlille]', class: 'checkbox'}, as: :boolean, checked_value: true, unchecked_value: false%>
-    <%= f.input :vlille, input_html: {name: 'transport[vlille]', class: 'checkbox'}, as: :boolean, checked_value: true, unchecked_value: false%>
-    <%= f.input :metro, input_html: {name: 'transport[métro]', class: 'checkbox'}, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.submit "Résumé", class: ""  %>
-  <% end %>
+  <div class="container-form-price-district">
+
+    <%# la grid se fait sur le search_price %>
+    <%= simple_form_for :search_price, url: houses_path, method: "GET" do |f|  %>
+    <div class="card-price-district">
+      <%# <h4>Prix:</h4> %>
+      <div class="card-min-price">
+      <h4>Prix:</h4>
+        <%= f.input :min, input_html: {name: 'house[min_price]', class: ''}, as: :integer %>
+      </div>
+      <div class="card-rooms-district">
+        <%= f.input :nombre_de_pièces, input_html: { min: 0, max: 10, step: 1, value: 3, name: 'house[number_of_room]', class: ''}, as: :range, min: 0, max: 10%>
+      </div>
+
+      <div class="card-max-price">
+        <%= f.input :max, input_html: {name: 'house[max_price]', class: ''}, as: :integer%>
+      </div>
+      <div class="card-superficie-district">
+        <%= f.input :superficie, input_html: {min: 0, max: 250, step: 1, value: 65, name: 'house[square_meter]', class: ''}, as: :range, min: 0, max: 250 %>
+        <div class="superficie-input">XX m²</div>
+      </div>
+      <%= f.submit "Lancé la recherche", class: "button-search-house"  %>
+    </div>
+    <% end %>
   </div>
 </div>
