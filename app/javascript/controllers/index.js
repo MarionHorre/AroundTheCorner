@@ -83,13 +83,13 @@ nextButton.addEventListener("click", (event) => {
 
   const nextCategory = activeForm.nextElementSibling;
   nextCategory.classList.add("active");
-  activeForm = document.querySelector(".form-category.active")
+  activeForm = document.querySelector(".form-category.active");
 
   // let activeForm = document.querySelector(".form-category.active");
   previousButton.classList.add("active");
 
-  progressBar.value += 34
-  // progressBar.setAttribute(0, 25)
+  progressBar.value += 33;
+  progressBar.value === 100 ? nextButton.classList.remove("active") : "";
   // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
 })
 
@@ -107,9 +107,13 @@ previousButton.addEventListener("click", (event) => {
   const previousCategory = activeForm.previousElementSibling;
   // console.log(previousCategory.classList)
   previousCategory.classList.add("active");
-  activeForm = document.querySelector(".form-category.active")
+  activeForm = document.querySelector(".form-category.active");
 
-  progressBar.value -= 34
+  progressBar.value -= 33;
+  progressBar.value != 100 ? nextButton.classList.add("active") : "";
+  // if (progressBar.value === 100 && nextButton.classList != "active") {
+  //   nextButton.classList.add("active");
+  // }
 
 })
 
