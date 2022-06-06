@@ -50,17 +50,20 @@ const cardPage = document.querySelector(".card-page")
 // div d'une partie du questionnaire
 let activeForm = document.querySelector(".form-category");
 
-findDistrictButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  // je fais disparaitre le boutton "trouve ton quartier" et la card
-  findDistrictButton.classList.add("disable");
-  introCard.classList.add("disable");
+if(findDistrictButton){
+  findDistrictButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    // je fais disparaitre le boutton "trouve ton quartier" et la card
+    findDistrictButton.classList.add("disable");
+    introCard.classList.add("disable");
 
-  // activeForm.classList.remove("active");
-  cardPage.classList.remove("d-none")
-  activeForm.classList.add("active");
-  nextButton.classList.add("active");
-})
+    // activeForm.classList.remove("active");
+    cardPage.classList.remove("d-none")
+    activeForm.classList.add("active");
+    nextButton.classList.add("active");
+  })
+}
+
 
 // const activeForm = document.querySelector(".form-category")
 
@@ -70,57 +73,62 @@ let currentActive = 1;
 // permet de calculer l'avancement de la bar de progression
 let progressionBar = 0;
 
-nextButton.addEventListener("click", (event) => {
-  event.preventDefault;
-  currentActive++;
+if(nextButton){
+  nextButton.addEventListener("click", (event) => {
+    event.preventDefault;
+    currentActive++;
 
-  if(currentActive > circles.length) {
-    currentActive = circles.length;
-  }
-  update()
+    if(currentActive > circles.length) {
+      currentActive = circles.length;
+    }
+    update()
 
-  activeForm.classList.remove("active");
+    activeForm.classList.remove("active");
 
-  const nextCategory = activeForm.nextElementSibling;
-  nextCategory.classList.add("active");
-  activeForm = document.querySelector(".form-category.active");
+    const nextCategory = activeForm.nextElementSibling;
+    nextCategory.classList.add("active");
+    activeForm = document.querySelector(".form-category.active");
 
-  // let activeForm = document.querySelector(".form-category.active");
-  previousButton.classList.add("active");
+    // let activeForm = document.querySelector(".form-category.active");
+    previousButton.classList.add("active");
 
-  const submitFormButton = document.querySelector(".form-category.submit-button");
+    const submitFormButton = document.querySelector(".form-category.submit-button");
 
-  progressBar.value += 33;
-  progressBar.value === 99 ? nextButton.classList.remove("active") : "";
-  progressBar.value === 99 ? submitFormButton.classList.add("active") : "";
-  // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
-})
+    progressBar.value += 33;
+    progressBar.value === 99 ? nextButton.classList.remove("active") : "";
+    progressBar.value === 99 ? submitFormButton.classList.add("active") : "";
+    // previousButton.classList.value == "form-button active" ? null : previousButton.classList.add("active");
+  })
+}
 
 
 
-previousButton.addEventListener("click", (event) => {
-  event.preventDefault;
+if(previousButton){
+  previousButton.addEventListener("click", (event) => {
+    event.preventDefault;
 
-  currentActive--;
-  if(currentActive < 1) {
-      currentActive = 1;
-  }
-  update()
+    // fait reculer la barre de progréssion
+    currentActive--;
+    if(currentActive < 1) {
+        currentActive = 1;
+    }
+    update()
 
-  activeForm.classList.remove("active");
+    activeForm.classList.remove("active");
 
-  const previousCategory = activeForm.previousElementSibling;
-  // console.log(previousCategory.classList)
-  previousCategory.classList.add("active");
-  activeForm = document.querySelector(".form-category.active");
+    const previousCategory = activeForm.previousElementSibling;
+    // console.log(previousCategory.classList)
+    previousCategory.classList.add("active");
+    activeForm = document.querySelector(".form-category.active");
 
-  progressBar.value -= 33;
-  progressBar.value != 100 ? nextButton.classList.add("active") : "";
-  // if (progressBar.value === 100 && nextButton.classList != "active") {
-  //   nextButton.classList.add("active");
-  // }
+    progressBar.value -= 33;
+    progressBar.value != 100 ? nextButton.classList.add("active") : "";
+    // if (progressBar.value === 100 && nextButton.classList != "active") {
+    //   nextButton.classList.add("active");
+    // }
+  })
+}
 
-})
 
 
 
@@ -201,3 +209,23 @@ const selects = document.querySelectorAll(".type");
 // };
 
 // cards.forEach(bindToClick);
+
+
+
+
+// Cette section est dédié à la gestion des cards de districts
+// et du form pour le prix pour ensuite envoyé à houses/index
+
+// il s'agit de chaque card de district
+const cardsDistrict = document.querySelectorAll(".card-district");
+
+// on itère sur chaque card pour ajouter un event listener de type click
+
+const bindDistrictToClick = (district) => {
+  district.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("click", event);
+  })
+}
+
+cardsDistrict.forEach(bindDistrictToClick)
