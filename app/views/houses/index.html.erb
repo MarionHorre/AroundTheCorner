@@ -1,0 +1,19 @@
+
+
+<div class='container'>
+<h1>Maisons</h1>
+
+  <div class='card-house-container'>
+  <% @results.each do |result| %>
+  <div class='card'>
+  <%= result[0][:name] %>
+  <%= result[0][:description] %>
+  <div class='image-house'><img src="<%= result[0][:url_image] %>" alt=""></div>
+  <%= result[0][:square_meter] %>
+  <%= result[0][:room_number] %>
+  </div>
+  <% end %>
+
+  </div>
+
+</div>
