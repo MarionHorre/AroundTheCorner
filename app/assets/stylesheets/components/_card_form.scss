@@ -48,10 +48,18 @@
 }
 
 .type.active {
-  color: inherit;
-  border-color: inherit;
+  color: black;
+  border: black 1px solid;
 }
 
 .form-check {
   padding-left: 0;
+}
+
+.type:hover i {
+  color: $medium-green;
+}
+
+.type.active i {
+  color: $medium-green;
 }
