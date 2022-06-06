@@ -4,8 +4,12 @@
   height: 80%;
   padding: 28px;
   text-align: center;
+
   & > h1 {
     margin-bottom: 24px;
+  }
+  & > .map-quartier {
+    margin-top: 68px;
   }
 }
 
@@ -16,6 +20,10 @@
   .card-district {
     position: relative;
     width: 33%;
+
+    &.district-not-picked {
+      display: none;
+    }
 
     & > * {
       padding: 16px;
