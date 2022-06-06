@@ -1,13 +1,11 @@
-<h1>Hello from districts index</h1>
-
-
 <div class="container-district">
 
-  <h3>Vos quartiers</h3>
+  <h1>Résultats de vos quartiers</h1>
 
   <div class="cards-districts">
     <% @districts.each do |district| %>
-      <div class="card-district">
+    <%# On va donner une id à chaque district pour selectionner la bonne ensuite en js %>
+      <div id="<%= district.id %>" class="card-district">
         <a href="#"></a>
         <div class="image-district">
           <img src="<%= district.image %>" alt="">
@@ -16,13 +14,13 @@
         <p><%= district.description %></p>
         <div class="districts-poi">
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>IMAGE</li>
+            <li>IMAGE</li>
+            <li>IMAGE</li>
+            <li>IMAGE</li>
+            <li>IMAGE</li>
+            <li>IMAGE</li>
+            <li>IMAGE</li>
           </ul>
         </div>
       </div>
@@ -31,5 +29,15 @@
 
   <div class="">
     <button>Cartes des quartiers</button>
+  </div>
+
+
+  <div class="container d-none">
+  <%= simple_form_for :search, url: houses_path, method: "GET" do |f|  %>
+    <%= f.input :vlille, input_html: {name: 'transport[vlille]', class: 'checkbox'}, as: :boolean, checked_value: true, unchecked_value: false%>
+    <%= f.input :vlille, input_html: {name: 'transport[vlille]', class: 'checkbox'}, as: :boolean, checked_value: true, unchecked_value: false%>
+    <%= f.input :metro, input_html: {name: 'transport[métro]', class: 'checkbox'}, as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.submit "Résumé", class: ""  %>
+  <% end %>
   </div>
 </div>

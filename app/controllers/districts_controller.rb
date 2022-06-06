@@ -4,4 +4,9 @@ class DistrictsController < ApplicationController
   def index
     @districts = District.first(3)
   end
+
+  # def search_flat
+  #   @params = params
+  # end
+
 end
