@@ -20,10 +20,12 @@ class HousesController < ApplicationController
     room_number = element.search(".annonce-infos li")[1].text
     name = element.search(".card-content .cat-name").text
     description = element.search(".annonce-accroche").text
+    price = element.search(".price").text
     url_image = element.search(".attachment-annonce-thumb").attr('data-src').value
-      if (square_meter.to_i >= 100) && (room_number.to_i >= 5)
-        @results << [name: name, description: description, url_image: url_image, square_meter: square_meter, room_number: room_number]
-      end
+      if (square_meter.to_i >= 100) && (room_number.to_i >= 5) && (price >= "100 000 €")
+        @results << [name: name, description: description, url_image: url_image, square_meter: square_meter, room_number: room_number, price: price]
+    end
+
     end
   end
 end
