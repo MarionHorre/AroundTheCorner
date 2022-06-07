@@ -211,7 +211,6 @@ const selects = document.querySelectorAll(".type");
 const cardsDistrict = document.querySelectorAll(".card-district");
 
 // on itère sur chaque card pour ajouter un event listener de type click
-
 const bindDistrictToClick = (district) => {
   district.addEventListener("click", (event) => {
     event.preventDefault();
@@ -225,17 +224,21 @@ const bindDistrictToClick = (district) => {
     let nextSibling = activeDistrict.nextElementSibling;
     let previousSibling = activeDistrict.previousElementSibling;
 
+    // on selectionne tous les suivants et on ajoute le d-none
     while(nextSibling) {
       nextSibling === null ? "" : nextSibling.classList.add("not-picked");
       nextSibling = nextSibling.nextElementSibling;
     }
 
+    // on selectionne tous les précédents et on ajoute le d-none
     while(previousSibling){
       previousSibling === null ? "" : previousSibling.classList.add("not-picked");
       previousSibling = previousSibling.previousElementSibling;
     }
-
+    formPrice.classList.remove("d-none");
   })
 }
+
+const formPrice = document.getElementById("form-price")
 
 cardsDistrict.forEach(bindDistrictToClick)

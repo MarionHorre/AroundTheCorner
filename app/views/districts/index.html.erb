@@ -30,13 +30,10 @@
     <% end %>
   </div>
 
-  <div class="map-quartier">
-    <%# faire la modale vers carte  %>
-    <button>Cartes des quartiers</button>
-  </div>
 
 
-  <div class="container-form-price-district">
+
+  <div id="form-price" class="container-form-price-district d-none">
 
     <%# la grid se fait sur le search_price %>
     <%= simple_form_for :search_price, url: houses_path, method: "GET" do |f|  %>
@@ -64,5 +61,10 @@
       <%= f.submit "Lancé la recherche", class: "button-search-house"  %>
     </div>
     <% end %>
+  </div>
+
+  <div class="map-quartier">
+    <%# faire la modale vers carte  %>
+    <button>Cartes des quartiers</button>
   </div>
 </div>
