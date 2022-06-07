@@ -1,137 +1,202 @@
 
-<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1572127694721-f3de48657e77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80);">
+<div class="banner"></div>
 
-
-  <div class="container">
+<div class="container">
+  <div class="homepage-presentation">
     <div class="card website-presentation">
+      <h1>Vous souhaitez vous installer à Lille ?</h1>
 
-      <p><img src="https://www.cjoint.com/doc/22_06/LFcoQbQlANl_33-332887-flechas-en-png-fleche-droite-png-transparent-png.png">Remplissez un questionnaire simple et rapide.</p>
+      <p><img src="https://img2.freepng.fr/20180417/kuw/kisspng-computer-icons-questionnaire-survey-methodology-fo-swimming-5ad5db6506b8f8.7908891215239647730275.jpg">Remplissez un questionnaire simple et rapide.</p>
 
-      <p><img src="https://www.cjoint.com/doc/22_06/LFcoQbQlANl_33-332887-flechas-en-png-fleche-droite-png-transparent-png.png">Nous trouverons le quartier de Lille fait pour vous !</p>
+      <p><img src="https://png.pngtree.com/png-vector/20190224/ourlarge/pngtree-vector-neighborhood-icon-png-image_701162.jpg">Nous trouverons le quartier de Lille fait pour vous !</p>
 
-      <p><img src="https://www.cjoint.com/doc/22_06/LFcoQbQlANl_33-332887-flechas-en-png-fleche-droite-png-transparent-png.png">Choisissez la maison de vos rêves.</p>
-    </div>
+      <p><img src="https://png.pngtree.com/png-vector/20190223/ourlarge/pngtree-vector-house-icon-png-image_695369.jpg">Choisissez la maison de vos rêves.</p>
+
     <button id="find_district"><strong>Trouve ton quartier !</strong></button>
-    <div class="form-card">
-      <div class="card-page d-none">
-        <%# <button id="previous" class="form-button">Précédent</button>
-        <button id="next" class="btn btn-primary form-button">Suivant</button> %>
+    </div>
 
-
-        <div class="progress-container">
-        <progress id="progress-bar" max="100" value="0"></progress>
-          <div class="progress-bar" id="progress"></div>
-          <div class="form-circle-bar active"></div>
-          <div class="form-circle-bar"></div>
-          <div class="form-circle-bar"></div>
-          <div class="form-circle-bar"></div>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" style='background-image:url("https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2020/12/11/node_906273/49852409/public/2020/12/11/B9725502404Z.1_20201211112641_000%2BGRUH7O58T.2-0.jpg?itok=T6T9w46h1607682408")'>
+          <div class="carousel-caption"><h1>Lomme</h1></div>
         </div>
 
-
-        <%= simple_form_for :search, url: recap_path, method: "GET" do |f|  %>
-
-        <div class="card form-category">
-          <div class="col-sm-12">
-            <h2>Quel sont vos moyens de transport ?</h2>
-            <div class="card-category">
-            <%#= f.label :transport %>
-              <div class="type">
-                <i class="fas fa-bicycle fa-2x pb-2"></i>
-                <%= f.input :vlille, input_html: {name: 'transport[vlille]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false%>
-              </div>
-              <div class="type">
-                <i class="fas fa-subway fa-2x pb-2"></i>
-                <%= f.input :métro, input_html: {name: 'transport[métro]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-tram fa-2x pb-2"></i>
-                <%= f.input :tramway, input_html: {name: 'transport[tram]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-bus-alt fa-2x pb-2"></i>
-                <%= f.input :bus, input_html: {name: 'transport[bus]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card form-category">
-          <div class="col-sm-12">
-            <h2>Que prioritisez-vous au quotidien ?</h2>
-            <div class="card-category">
-              <%#= f.label :vie_quotidienne %>
-              <div class="type">
-                <i class="fas fa-store fa-2x pb-2"></i>
-                <%= f.input :supermarché, input_html: {name: 'vie quotidienne[supermarché]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-school fa-2x pb-2"></i>
-                <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-child fa-2x pb-2"></i>
-                <%= f.input :aire_de_jeux, input_html: {name: 'vie quotidienne[parc à jeux]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-            </div>
-          </div>
+        <div class="carousel-item" style='background-image:url("https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/actualites/images/juin-2019/bandeau-bois-blancs/2586156-2-fre-FR/bandeau-bois-blancs_page_banner_image_bannerview.png")'>
+            <div class="carousel-caption"><h1>Bois Blancs</h1></div>
         </div>
 
-
-        <div class="card form-category">
-          <div class="col-sm-12">
-            <h2>Qu’aimeriez-vous avoir à quelques pas de chez vous?</h2>
-            <div class="card-category">
-            <%#= f.label :hobbies %>
-              <div class="type">
-                <i class="fas fa-university fa-2x pb-2"></i>
-                <%= f.input :musée, input_html: {name: 'hobbies[historical monuments]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-book fa-2x pb-2"></i>
-                <%= f.input :bibliothèque, input_html: {name: 'hobbies[library]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-swimmer fa-2x pb-2"></i>
-                <%= f.input :piscine, input_html: {name: 'hobbies[swimming_pool]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-film fa-2x pb-2"></i>
-                <%= f.input :cinéma, input_html: {name: 'hobbies[movie_theater]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-tree fa-2x pb-2"></i>
-                <%= f.input :parc, input_html: {name: 'hobbies[parcs]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-            </div>
-          </div>
+        <div class="carousel-item" style='background-image:url("https://lilleaddict.fr/wordpress/wp-content/uploads/2021/04/marche-lille.jpg")'>
+            <div class="carousel-caption"><h1>Wazemmes</h1></div>
         </div>
 
-
-        <div class="card form-category">
-          <div class="col-sm-12">
-            <h2>Ne négligeons pas la santé...</h2>
-            <div class="card-category">
-              <%#= f.label :santé %>
-              <div class="type">
-                <i class="fas fa-hospital fa-2x pb-2"></i>
-                <%= f.input :hopital, input_html: {name: 'santé[hôpital]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-paw fa-2x pb-2"></i>
-                <%= f.input :vétérinaire, input_html: {name: 'santé[vétérinaire', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-              <div class="type">
-                <i class="fas fa-pills fa-2x pb-2"></i>
-                <%= f.input :pharmacie, input_html: {name: 'santé[pharmacie]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
-              </div>
-            </div>
-          </div>
+        <div class="carousel-item" style='background-image:url("https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2019/05/31/node_625972/40457393/public/2019/05/31/B9719766830Z.1_20190531143639_000%2BGJ5DO74TT.1-0.jpg?itok=dFGG8E7F1578430072")'>
+            <div class="carousel-caption"><h1>Lille Sud</h1></div>
         </div>
-        <%= f.submit "Résumé", class: "form-category submit-button"  %>
-      <% end %>
-      <div class="progress-wrapper">
-        <button id="previous" class="btn btn-primary form-button">Précédent</button>
-        <button id="next" class="btn btn-primary form-button">Suivant</button>
+
+        <div class="carousel-item" style='background-image:url("https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/actualites/images/juin-2019/bandeau-moulins/2586140-1-fre-FR/bandeau-moulins_page_banner_image_bannerview.jpg")'>
+            <div class="carousel-caption"><h1>Lille Moulins</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/actualites/images/juin-2019/header-faubourg/2586214-1-fre-FR/header-faubourg_page_banner_image_bannerview.jpg")'>
+            <div class="carousel-caption"><h1>Faubourg de Béthune</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Mairie_d%27_Hellemmes-Lille.jpg")'>
+            <div class="carousel-caption"><h1>Hellemmes</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("https://images.unsplash.com/photo-1610064980867-ae10cf264e1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")'>
+            <div class="carousel-caption"><h1>Vauban Esquermes</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/actualites/images/juin-2019/bandeau-st-maurice/2586152-1-fre-FR/bandeau-st-maurice_page_banner_image_bannerview.jpg")'>
+            <div class="carousel-caption"><h1>Saint Maurice Pellevoisin</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("https://www.voyageway.com/wp-content/uploads/2019/07/ou-dormir-a-lille-grand-place.jpg")'>
+            <div class="carousel-caption"><h1>Lille-Centre</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("http://blog.luckyloc.com/wp-content/uploads/2018/05/Vieux-Lille.jpg")'>
+            <div class="carousel-caption"><h1>Vieux-Lille</h1></div>
+        </div>
+
+        <div class="carousel-item" style='background-image:url("https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/actualites/images/juin-2019/bandeau-fives/2586148-1-fre-FR/bandeau-fives_page_banner_image_bannerview.jpg")'>
+            <div class="carousel-caption"><h1>Fives</h1></div>
+        </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="form-card">
+
+    <div class="card-page d-none">
+      <%# <button id="previous" class="form-button">Précédent</button>
+      <button id="next" class="btn btn-primary form-button">Suivant</button> %>
+
+
+      <div class="progress-container">
+      <progress id="progress-bar" max="100" value="0"></progress>
+        <div class="progress-bar" id="progress"></div>
+        <div class="form-circle-bar active"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+        <div class="form-circle-bar"></div>
+      </div>
+
+
+      <%= simple_form_for :search, url: recap_path, method: "GET" do |f|  %>
+
+      <div class="card form-category">
+        <div class="col-sm-12">
+          <h2>Quel sont vos moyens de transport ?</h2>
+          <div class="card-category">
+          <%#= f.label :transport %>
+            <div class="type">
+              <i class="fas fa-bicycle fa-2x pb-2"></i>
+              <%= f.input :vlille, input_html: {name: 'transport[vlille]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false%>
+            </div>
+            <div class="type">
+              <i class="fas fa-subway fa-2x pb-2"></i>
+              <%= f.input :métro, input_html: {name: 'transport[métro]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-tram fa-2x pb-2"></i>
+              <%= f.input :tramway, input_html: {name: 'transport[tram]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-bus-alt fa-2x pb-2"></i>
+              <%= f.input :bus, input_html: {name: 'transport[bus]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card form-category">
+        <div class="col-sm-12">
+          <h2>Que prioritisez-vous au quotidien ?</h2>
+          <div class="card-category">
+            <%#= f.label :vie_quotidienne %>
+            <div class="type">
+              <i class="fas fa-store fa-2x pb-2"></i>
+              <%= f.input :supermarché, input_html: {name: 'vie quotidienne[supermarché]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-school fa-2x pb-2"></i>
+              <%= f.input :ecole, input_html: {name: 'vie quotidienne[école]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-child fa-2x pb-2"></i>
+              <%= f.input :aire_de_jeux, input_html: {name: 'vie quotidienne[parc à jeux]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card form-category">
+        <div class="col-sm-12">
+          <h2>Qu’aimeriez-vous avoir à quelques pas de chez vous?</h2>
+          <div class="card-category">
+          <%#= f.label :hobbies %>
+            <div class="type">
+              <i class="fas fa-university fa-2x pb-2"></i>
+              <%= f.input :musée, input_html: {name: 'hobbies[historical monuments]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-book fa-2x pb-2"></i>
+              <%= f.input :bibliothèque, input_html: {name: 'hobbies[library]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-swimmer fa-2x pb-2"></i>
+              <%= f.input :piscine, input_html: {name: 'hobbies[swimming_pool]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-film fa-2x pb-2"></i>
+              <%= f.input :cinéma, input_html: {name: 'hobbies[movie_theater]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-tree fa-2x pb-2"></i>
+              <%= f.input :parc, input_html: {name: 'hobbies[parcs]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card form-category">
+        <div class="col-sm-12">
+          <h2>Ne négligeons pas la santé...</h2>
+          <div class="card-category">
+            <%#= f.label :santé %>
+            <div class="type">
+              <i class="fas fa-hospital fa-2x pb-2"></i>
+              <%= f.input :hopital, input_html: {name: 'santé[hôpital]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-paw fa-2x pb-2"></i>
+              <%= f.input :vétérinaire, input_html: {name: 'santé[vétérinaire', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="type">
+              <i class="fas fa-pills fa-2x pb-2"></i>
+              <%= f.input :pharmacie, input_html: {name: 'santé[pharmacie]', class: 'checkbox d-none'}, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= f.submit "Résumé", class: "form-category submit-button"  %>
+    <% end %>
+    <div class="progress-wrapper">
+      <button id="previous" class="btn btn-primary form-button">Précédent</button>
+      <button id="next" class="btn btn-primary form-button">Suivant</button>
     </div>
   </div>
 </div>

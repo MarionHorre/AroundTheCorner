@@ -229,3 +229,6 @@ const bindDistrictToClick = (district) => {
 }
 
 cardsDistrict.forEach(bindDistrictToClick)
+
+
+// carousel
