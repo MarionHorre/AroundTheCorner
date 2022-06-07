@@ -9,6 +9,12 @@
   position: relative;
   height: 375px;
   width: 1200px;
+
+  & > h4 {
+    position: absolute;
+    left: 15%;
+    bottom: 67%;
+  }
 }
 
 .card-price-district {
@@ -38,7 +44,7 @@
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);;
   }
 
-  & > .card-superficie-district {
+  & > .card-superficie-district, .card-rooms-district, .card-min-price, .card-max-price {
     display: flex;
     align-items: center;
 
@@ -46,4 +52,9 @@
       padding: 10px;
     }
   }
+}
+
+.min-price-tag, .max-price-tag {
+  right: 80%;
+  position: absolute;
 }

@@ -40,18 +40,22 @@
 
     <%# la grid se fait sur le search_price %>
     <%= simple_form_for :search_price, url: houses_path, method: "GET" do |f|  %>
+
+    <h4>Prix:</h4>
     <div class="card-price-district">
-      <%# <h4>Prix:</h4> %>
       <div class="card-min-price">
-      <h4>Prix:</h4>
-        <%= f.input :min, input_html: {name: 'house[min_price]', class: ''}, as: :integer %>
+      <%# <h4>Prix:</h4> %>
+        <%= f.input :min, input_html: {name: 'house[min_price]', class: ''}, as: :integer, :label_html => { :class => 'min-price-tag' } %>
+        <div class="min-price-input">€</div>
       </div>
       <div class="card-rooms-district">
         <%= f.input :nombre_de_pièces, input_html: { min: 0, max: 10, step: 1, value: 3, name: 'house[number_of_room]', class: ''}, as: :range, min: 0, max: 10%>
+        <div class="room-input">pièce(s)</div>
       </div>
 
       <div class="card-max-price">
-        <%= f.input :max, input_html: {name: 'house[max_price]', class: ''}, as: :integer%>
+        <%= f.input :max, input_html: {name: 'house[max_price]', class: ''}, as: :integer, :label_html => { :class => 'min-price-tag' }%>
+        <div class="max-price-input">€</div>
       </div>
       <div class="card-superficie-district">
         <%= f.input :superficie, input_html: {min: 0, max: 250, step: 1, value: 65, name: 'house[square_meter]', class: ''}, as: :range, min: 0, max: 250 %>
