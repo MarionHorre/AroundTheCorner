@@ -1,5 +1,5 @@
 .container-district {
-  display: flex;
+  // display: flex;
   flex-direction: column;
   height: 80%;
   padding: 28px;
@@ -16,6 +16,7 @@
 .cards-districts {
   display: flex;
   justify-content: center;
+  position: relative;
 
   .card-district {
     position: relative;
@@ -48,9 +49,47 @@
       height: 20vh;
       width: 100%;
     }
+
+    &.active-district {
+      position: absolute;
+      width: 95%;
+      height: 23vh;
+      display: grid;
+      grid-template-columns: 25% 50% 1fr;
+      grid-template-rows: 60px 1fr;
+
+      & > .image-district {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        transform: translate(0px, 113%);
+      }
+
+      & > h4 {
+        grid-row-start: 1;
+      }
+
+      & > p {
+        text-align: justify;
+        grid-column: 2;
+      }
+
+      & > .districts-poi {
+        // grid-row: 1 / span 2;
+      }
+
+      &:hover {
+        box-shadow: none;
+        transform: scale(1.0);
+      }
+    }
   }
 }
 
 .districts-poi > ul {
   list-style-type: none;
+}
+
+.not-picked {
+  display: none;
 }

@@ -32,7 +32,6 @@ application.load(definitionsFromContext(context))
 
 
 let cookies = document.cookie;
-console.log("cookie", cookies)
 
 // div de la card d'introduction et son boutton
 const introCard = document.querySelector(".website-presentation")
@@ -190,14 +189,6 @@ const selects = document.querySelectorAll(".type");
     })
   });
 
-
-
-
-
-
-
-
-
 // const cards = document.querySelectorAll(".type");
 
 // const toggleActiveClass = (toggle) => {
@@ -220,15 +211,84 @@ const selects = document.querySelectorAll(".type");
 const cardsDistrict = document.querySelectorAll(".card-district");
 
 // on itère sur chaque card pour ajouter un event listener de type click
-
 const bindDistrictToClick = (district) => {
   district.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("click", event);
+    // console.log("click", event);
+    district.classList.add("active-district");
+
+    const mapDistrict = document.querySelector(".map-quartier")
+    mapDistrict.classList.add("d-none")
+
+    // on sauvegard le district selectionné dans une variable
+    let activeDistrict = district
+
+    // on selectionne le next et previous sibling (il y en a que 3 d'afficheé)
+    let nextSibling = activeDistrict.nextElementSibling;
+    let previousSibling = activeDistrict.previousElementSibling;
+
+    // on selectionne tous les suivants et on ajoute le d-none
+    while(nextSibling) {
+      nextSibling === null ? "" : nextSibling.classList.add("not-picked");
+      nextSibling = nextSibling.nextElementSibling;
+    }
+
+    // on selectionne tous les précédents et on ajoute le d-none
+    while(previousSibling){
+      previousSibling === null ? "" : previousSibling.classList.add("not-picked");
+      previousSibling = previousSibling.previousElementSibling;
+    }
+    formPrice.classList.remove("d-none");
   })
 }
 
+const formPrice = document.getElementById("form-price")
 cardsDistrict.forEach(bindDistrictToClick)
 
 
-// carousel
+// cette section est dédié à la gestion des valeurs et du price form
+
+const districtSearchForHouses = document.querySelector(".button-search-house")
+
+// if(districtSearchForHouses){
+//   console.log("distri", districtSearchForHouses);
+//   districtSearchForHouses.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//   })
+// }
+
+const minPriceInput = document.querySelector(".min-price-input");
+const minPriceValue = document.querySelector(".min-price-value");
+
+if(minPriceInput) {
+  minPriceInput.addEventListener("keypress", (event) => {
+    minPriceValue.innerHTML = minPriceValue.innerHTML + event.key;
+  })
+}
+
+const maxPriceInput = document.querySelector(".max-price-input");
+const maxPriceValue = document.querySelector(".max-price-value");
+
+if(maxPriceInput) {
+  maxPriceInput.addEventListener("keypress", (event) => {
+    maxPriceValue.innerHTML = maxPriceValue.innerHTML + event.key;
+  })
+}
+
+const numberOfRoomsInput = document.querySelector(".number-of-rooms-input");
+const numberOfRoomsValue = document.querySelector(".room-value");
+
+if(numberOfRoomsInput) {
+  numberOfRoomsInput.addEventListener("mouseup", (event) => {
+    numberOfRoomsValue.innerHTML = numberOfRoomsInput.value + " pièces";
+  })
+}
+
+const superficieInput = document.querySelector(".square-meter-input");
+const superficieValue = document.querySelector(".superficie-value");
+
+if(superficieInput) {
+  superficieInput.addEventListener("mouseup", (event) => {
+    superficieValue.innerHTML = superficieInput.value + " m²";
+  })
+}
