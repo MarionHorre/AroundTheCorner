@@ -240,5 +240,52 @@ const bindDistrictToClick = (district) => {
 }
 
 const formPrice = document.getElementById("form-price")
-
 cardsDistrict.forEach(bindDistrictToClick)
+
+
+// cette section est dédié à la gestion des valeurs et du price form
+
+const districtSearchForHouses = document.querySelector(".button-search-house")
+
+// if(districtSearchForHouses){
+//   console.log("distri", districtSearchForHouses);
+//   districtSearchForHouses.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//   })
+// }
+
+const minPriceInput = document.querySelector(".min-price-input");
+const minPriceValue = document.querySelector(".min-price-value");
+
+if(minPriceInput) {
+  minPriceInput.addEventListener("keypress", (event) => {
+    minPriceValue.innerHTML = minPriceValue.innerHTML + event.key;
+  })
+}
+
+const maxPriceInput = document.querySelector(".max-price-input");
+const maxPriceValue = document.querySelector(".max-price-value");
+
+if(maxPriceInput) {
+  maxPriceInput.addEventListener("keypress", (event) => {
+    maxPriceValue.innerHTML = maxPriceValue.innerHTML + event.key;
+  })
+}
+
+const numberOfRoomsInput = document.querySelector(".number-of-rooms-input");
+const numberOfRoomsValue = document.querySelector(".room-value");
+
+if(numberOfRoomsInput) {
+  numberOfRoomsInput.addEventListener("mouseup", (event) => {
+    numberOfRoomsValue.innerHTML = numberOfRoomsInput.value + " pièces";
+  })
+}
+
+const superficieInput = document.querySelector(".square-meter-input");
+const superficieValue = document.querySelector(".superficie-value");
+
+if(superficieInput) {
+  superficieInput.addEventListener("mouseup", (event) => {
+    superficieValue.innerHTML = superficieInput.value + " m²";
+  })
+}
