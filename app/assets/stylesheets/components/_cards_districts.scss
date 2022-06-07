@@ -16,6 +16,7 @@
 .cards-districts {
   display: flex;
   justify-content: center;
+  position: relative;
 
   .card-district {
     position: relative;
@@ -47,6 +48,38 @@
     & > .image-district > img{
       height: 20vh;
       width: 100%;
+    }
+
+    &.active-district {
+      position: absolute;
+      width: 95%;
+      height: 23vh;
+      display: grid;
+      grid-template-columns: 20% 35% 1fr;
+      // grid-template-rows: 1fr 1fr;
+
+      & > .image-district {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+
+      & > h4 {
+        grid-row-start: 1;
+      }
+
+      & > p {
+        grid-column: 2;
+      }
+
+      & > .districts-poi {
+        grid-row: 1 / span 2;
+      }
+
+      &:hover {
+        box-shadow: none;
+        transform: scale(1.0);
+      }
     }
   }
 }
