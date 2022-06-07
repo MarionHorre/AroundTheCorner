@@ -1,29 +1,40 @@
-
 <%# a retirer, juste pour verifier si les params passent bien %>
 <%= @houses_params %>
 
 <div class='container'>
-<h1>Maisons</h1>
+  <h1>Maisons</h1>
 
-  <div class='card-house-global'>
-    <% @results.each do |result| %>
-    <div class='card-house'>
-      <div class='image-house'><img src="<%= result[0][:url_image] %>" alt=""></div>
-      <h3><%= result[0][:name] %></h3>
-      <div class="card-house-infos">
-        <div class="card-infos-1">
+    <div class='card-house-global' data-controller="modal">
+      <% @results.each do |result| %>
+      <div class="global" data-controller="modal">
+        <div class='card-house' data-modal-target="normal" data-action="click->modal#display" >
+          <div class='image-house'><img src="<%= result[0][:url_image] %>" alt=""></div>
+          <h3><%= result[0][:name] %></h3>
+          <div class="card-house-infos">
+            <div class="card-infos-1">
 
-          <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= result[0][:square_meter] %></p>
-          <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= result[0][:room_number] %></p>
+              <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= result[0][:square_meter] %></p>
+              <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= result[0][:room_number] %></p>
+            </div>
+            <div class="card-infos-2">
+              <p><%= result[0][:price] %></p>
+              <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
+            </div>
+          </div>
         </div>
-        <div class="card-infos-2">
-          <p><%= result[0][:price] %></p>
-          <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
+        <div class="modal_house d-none" data-modal-target="big">
+          <div class='modal_house_img'><img src="<%= result[0][:url_image] %>" alt=""></div>
+            <h3><%= result[0][:name] %></h3>
+            <div class="cross" data-action="click->modal#close">X</div>
+            <div class="modal_house_params">
+              <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= result[0][:square_meter] %></p>
+              <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= result[0][:room_number] %></p>
+            </div>
+            <p><%= result[0][:price] %></p>
+            <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
+            <p><%= result[0][:description] %></p>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
-
-  </div>
-
 </div>
