@@ -32,7 +32,6 @@ application.load(definitionsFromContext(context))
 
 
 let cookies = document.cookie;
-console.log("cookie", cookies)
 
 // div de la card d'introduction et son boutton
 const introCard = document.querySelector(".website-presentation")
@@ -190,14 +189,6 @@ const selects = document.querySelectorAll(".type");
     })
   });
 
-
-
-
-
-
-
-
-
 // const cards = document.querySelectorAll(".type");
 
 // const toggleActiveClass = (toggle) => {
@@ -224,7 +215,26 @@ const cardsDistrict = document.querySelectorAll(".card-district");
 const bindDistrictToClick = (district) => {
   district.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("click", event);
+    // console.log("click", event);
+    district.classList.add("active-district");
+
+    // on sauvegard le district selectionné dans une variable
+    let activeDistrict = district
+
+    // on selectionne le next et previous sibling (il y en a que 3 d'afficheé)
+    let nextSibling = activeDistrict.nextElementSibling;
+    let previousSibling = activeDistrict.previousElementSibling;
+
+    while(nextSibling) {
+      nextSibling === null ? "" : nextSibling.classList.add("not-picked");
+      nextSibling = nextSibling.nextElementSibling;
+    }
+
+    while(previousSibling){
+      previousSibling === null ? "" : previousSibling.classList.add("not-picked");
+      previousSibling = previousSibling.previousElementSibling;
+    }
+
   })
 }
 
