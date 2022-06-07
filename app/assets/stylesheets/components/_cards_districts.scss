@@ -20,7 +20,8 @@
 
   .card-district {
     position: relative;
-    width: 33%;
+    width: 30%;
+    margin: 2%;
 
     &.district-not-picked {
       display: none;
@@ -38,6 +39,10 @@
       left:0px;
     }
 
+    & > p {
+      text-align: justify;
+    }
+
     &:hover {
       transform: scale(1.03);
       box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
@@ -47,6 +52,7 @@
 
     & > .image-district > img{
       height: 20vh;
+      min-height: 180px;
       width: 100%;
     }
 

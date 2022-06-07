@@ -17,15 +17,7 @@
         <h4><%= district.name %></h4>
         <p><%= district.description %></p>
         <div class="districts-poi">
-          <ul>
-            <li>IMAGE</li>
-            <li>IMAGE</li>
-            <li>IMAGE</li>
-            <li>IMAGE</li>
-            <li>IMAGE</li>
-            <li>IMAGE</li>
-            <li>IMAGE</li>
-          </ul>
+          <%= render "icons_list", district_params: @district_params %>
         </div>
       </div>
     <% end %>

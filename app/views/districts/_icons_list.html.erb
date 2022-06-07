@@ -1,0 +1,80 @@
+<%# <%= district_params %>
+
+<div class="card_cards">
+  <div class="card_recap_category_card">
+    <% if district_params["transport"] %>
+      <div class="<%= !district_params["transport"]["bus"] ? "d-none" : "" %>">
+        <i class="fas fa-bus-alt fa-2x"></i>
+        <p>Bus</p>
+      </div>
+      <div class="<%= !district_params["transport"]["vlille"] ? "d-none" : "" %>">
+        <i class="fas fa-bicycle fa-2x"></i>
+        <p>V-Lille</p>
+      </div>
+      <div class="<%= !district_params["transport"]["métro"] ? "d-none" : "" %>">
+        <i class="fas fa-subway fa-2x"></i>
+        <p>Metro</p>
+      </div>
+      <div class="<%= !district_params["transport"]["tram"] ? "d-none" : "" %>">
+        <i class="fas fa-tram fa-2x"></i>
+        <p>Tramway</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="card_recap_category_card">
+    <% if district_params["vie quotidienne"] %>
+      <div class="<%= !district_params["vie quotidienne"]["supermarché"] ? "d-none" : "" %>">
+        <i class="fas fa-store fa-2x"></i>
+        <p>Supermarché</p>
+      </div>
+      <div class="<%= !district_params["vie quotidienne"]["école"] ? "d-none" : "" %>">
+        <i class="fas fa-school fa-2x"></i>
+        <p>École</p>
+      </div>
+      <div class="<%= !district_params["vie quotidienne"]["parc à jeux"] ? "d-none" : "" %>">
+        <i class="fas fa-child fa-2x"></i>
+        <p>Aire de jeux</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="card_recap_category_card">
+    <% if district_params["hobbies"] %>
+      <div class="<%= !district_params["hobbies"]["library"] ? "d-none" : "" %>">
+        <i class="fas fa-book fa-2x"></i>
+        <p>Bibliothèque</p>
+      </div>
+      <div class="<%= !district_params["hobbies"]["swimming_pool"] ? "d-none" : "" %>">
+        <i class="fas fa-swimmer fa-2x"></i>
+        <p>Piscine</p>
+      </div>
+      <div class="<%= !district_params["hobbies"]["historical monuments"] ? "d-none" : "" %>">
+        <i class="fas fa-university fa-2x"></i>
+        <p>Musée</p>
+      </div>
+      <div class="<%= !district_params["hobbies"]["parcs"] ? "d-none" : "" %>">
+        <i class="fas fa-tree fa-2x"></i>
+        <p>Parc</p>
+      </div>
+      <div class="<%= !district_params["hobbies"]["movie_theater"] ? "d-none" : "" %>">
+        <i class="fas fa-film fa-2x"></i>
+        <p>Cinéma</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="card_recap_category_card">
+    <% if district_params["santé"] %>
+      <div class="<%= !district_params["santé"]["pharmacie"] ? "d-none" : "" %>">
+        <i class="fas fa-pills fa-2x"></i>
+        <p>Pharmacie</p>
+      </div>
+      <div class="<%= !district_params["santé"]["hôpital"] ? "d-none" : "" %>">
+        <i class="fas fa-hospital fa-2x"></i>
+        <p>Hôpital</p>
+      </div>
+      <div class="<%= !district_params["santé"]["vétérinaire"] ? "d-none" : "" %>">
+        <i class="fas fa-paw fa-2x"></i>
+        <p>Vétérinaire</p>
+      </div>
+    <% end %>
+  </div>
+</div>
