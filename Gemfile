@@ -32,6 +32,8 @@ gem 'devise'
 
 # calcul if point of interest includ in district
 gem 'geokit'
+# map
+gem "geocoder"
 
 gem 'rgeo-geojson'
 
