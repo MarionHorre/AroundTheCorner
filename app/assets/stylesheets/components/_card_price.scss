@@ -1,6 +1,8 @@
 .container-form-price-district {
   display: flex;
   justify-content: center;
+  margin-top: 220px;
+  position: absolute;
 }
 .search_price {
   display: flex;
@@ -9,6 +11,7 @@
   position: relative;
   height: 375px;
   width: 1200px;
+  left: 10%;
 
   & > h4 {
     position: absolute;

@@ -217,6 +217,9 @@ const bindDistrictToClick = (district) => {
     // console.log("click", event);
     district.classList.add("active-district");
 
+    const mapDistrict = document.querySelector(".map-quartier")
+    mapDistrict.classList.add("d-none")
+
     // on sauvegard le district selectionné dans une variable
     let activeDistrict = district
 
