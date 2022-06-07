@@ -1,0 +1,18 @@
+.modal_house {
+width: 80%;
+height: 80%;
+background-color: $white;
+position: fixed;
+left: 10%;
+
+  .modal_house_img {
+    padding: 4px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .modal_house_icon img {
+    height: 10px;
+    width: 10px;
+  }
+}
