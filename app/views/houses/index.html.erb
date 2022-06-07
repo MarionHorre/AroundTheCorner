@@ -12,7 +12,6 @@
           <h3><%= result[0][:name] %></h3>
           <div class="card-house-infos">
             <div class="card-infos-1">
-
               <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= result[0][:square_meter] %></p>
               <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= result[0][:room_number] %></p>
             </div>
@@ -25,13 +24,14 @@
         <div class="modal_house d-none" data-modal-target="big">
           <div class='modal_house_img'><img src="<%= result[0][:url_image] %>" alt=""></div>
             <h3><%= result[0][:name] %></h3>
-            <div class="cross" data-action="click->modal#close">X</div>
+            <div id="cross" data-action="click->modal#close">x</div>
             <div class="modal_house_params">
               <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= result[0][:square_meter] %></p>
               <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= result[0][:room_number] %></p>
+              <p><%= result[0][:price] %></p>
+              <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
             </div>
-            <p><%= result[0][:price] %></p>
-            <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
+            <button>Lien vers l'annonce</button>
             <p><%= result[0][:description] %></p>
         </div>
       </div>
