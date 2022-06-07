@@ -42,6 +42,9 @@
 
     &>p {
       text-align: justify;
+      min-height: 20%;
+      height: 20%;
+      overflow: scroll;
     }
 
     &:hover {
@@ -97,6 +100,23 @@
   list-style-type: none;
 }
 
+.districts-poi {
+
+  & > .card_cards {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+
+    & > .card_recap_category_card {
+      display: grid;
+      justify-items: center;
+      grid-template-rows: 1fr 1fr auto auto auto;
+    }
+  }
+}
+
+
 .not-picked {
   display: none;
 }
@@ -107,7 +127,7 @@
 
   & > p {
     margin: 0;
-    padding-left: 8px;
-    padding-top: 5px;
+    // padding-left: 8px;
+    // padding-top: 5px;
   }
 }
