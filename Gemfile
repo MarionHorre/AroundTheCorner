@@ -35,6 +35,8 @@ gem 'geokit'
 
 gem 'rgeo-geojson'
 
+
+gem 'dotenv-rails', groups: [:development, :test]
 # gem 'jbuilder'
 
 gem 'autoprefixer-rails', '10.2.5'
