@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        <div class="modal_house d-none" data-modal-target="test">
+        <div class="modal_house d-none" data-modal-target="big">
           <div class='modal_house_img'><img src="<%= result[0][:url_image] %>" alt=""></div>
             <h3><%= result[0][:name] %></h3>
             <div class="cross" data-action="click->modal#close">X</div>
@@ -38,5 +38,3 @@
       <% end %>
     </div>
 </div>
-
-<%# {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'} %>
