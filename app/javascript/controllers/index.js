@@ -9,6 +9,11 @@ const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
 
+
+
+// sortable
+
+
 // const next = document.getElementById('next');
 // const form_category = document.querySelectorAll(".form-category")
 
