@@ -68,7 +68,7 @@
     }
 
     &.active-district {
-      position: absolute;
+      // position: absolute;
       width: 95%;
       height: auto;
       display: grid;
@@ -78,8 +78,8 @@
       &>.image-district {
         grid-column-start: 1;
         grid-row-start: 1;
-        grid-row-end: 2;
-        transform: translate(0px, 113%);
+        // grid-row-end: 2;
+        // transform: translate(0px, 113%);
       }
 
       &>h4 {
