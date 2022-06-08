@@ -32,8 +32,7 @@ class HousesController < ApplicationController
       link = element.search(".card-link")[0]['href']
       rescue_link(link)
       url_image = element.search(".attachment-annonce-thumb").attr('data-src').value.gsub(/400x200/, '640x480')
-      raise
-      House.create[name: name, description: description, image: url_image, square_meters: square_meter, room_number: room_number, price: price, link: link]
+      House.create![name: name, description: description, image: url_image, square_meters: square_meter, room_number: room_number, price: price, link: link]
     end
   end
 
