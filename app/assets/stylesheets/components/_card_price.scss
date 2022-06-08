@@ -1,26 +1,28 @@
 .container-form-price-district {
   display: flex;
   justify-content: center;
-  margin-top: 220px;
-  position: absolute;
+  position: relative;
 }
+
 .search_price {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  // position: relative;
   height: 375px;
   width: 1200px;
   left: 10%;
 
   & > h4 {
     position: absolute;
-    left: 15%;
+    z-index: 1;
+    left: 19%;
     bottom: 67%;
   }
 }
 
 .card-price-district {
+  position: absolute;
   padding: 15px 130px;
   margin: 25px 0;
   border-radius: 10px;
@@ -28,14 +30,15 @@
   background-color: $grey;
   border: white;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30% 1fr;
   grid-template-rows: 1fr 1fr;
   justify-items: start;
   align-items: center;
-  width: 80%;
+  width: 70%;
+  column-gap: 4em;
 
   & > .button-search-house {
-    right: -3%;
+    right: -10%;
     position: absolute;
     background-color: $medium-green;
     border-radius: 5px;
@@ -55,9 +58,19 @@
       padding: 10px;
     }
   }
+
+
 }
 
 .min-price-tag, .max-price-tag {
-  right: 80%;
-  position: absolute;
+  // right: 80%;
+  // position: absolute;
+
+  & > abbr {
+    display: none;
+  }
+}
+
+.search_price_nombre_de_pièces, .search_price_min, .search_price_max, .search_price_superficie {
+  text-align: start;
 }
