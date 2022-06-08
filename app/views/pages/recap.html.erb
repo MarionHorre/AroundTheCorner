@@ -91,7 +91,7 @@
 
         <div class="card priority-ranking"  >
           <div><p>Placez vos choix par ordre de priorité :</p></div>
-          <div id="priority-container" class="priority-ranking1"data-controller="recap-priority" data-recap-priority-target="list"></div>
+          <div id="priority-container" class="priority-ranking1" data-controller="recap-priority" data-recap-priority-target="list"></div>
         </div>
 
         <div class="card icone-ranking" >
@@ -164,7 +164,10 @@
 
     <div class="card_recap_buttons">
       <%= link_to "Précédent", root_path %>
-      <%= link_to "Suivant", districts_path %>
+     <%= simple_form_for :search, url: districts_path, method: "GET" do |f|  %>
+      <%= f.input :priority, input_html: {name: 'priority', id: "input_priority"} %>
+      <%= f.submit "Suivant" %>
+    <% end %>
     </div>
   </div>
 </div>

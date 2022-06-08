@@ -2,6 +2,7 @@ class DistrictsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
+    #session[:priority] = params
     # on récupère les params
     @district_params = session[:params]
 

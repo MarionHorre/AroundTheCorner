@@ -35,7 +35,8 @@ static targets= ["list"]
       console.log(element.dataset.type)
       hash[element.dataset.type] = index + 1
     })
-    console.log(hash)
+    const input = document.getElementById("input_priority")
+    input.value = JSON.stringify(hash)
   }
 }
 //
