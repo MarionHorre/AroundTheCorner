@@ -36,6 +36,7 @@ let cookies = document.cookie;
 // div de la card d'introduction et son boutton
 const introCard = document.querySelector(".website-presentation")
 const findDistrictButton = document.getElementById("find_district");
+const carrousselMapHomepage = document.querySelector(".carousel-map")
 
 // button suivant/précédant
 const nextButton = document.getElementById("next");
@@ -63,6 +64,7 @@ if(findDistrictButton){
     cardPage.classList.remove("d-none")
     activeForm.classList.add("active");
     nextButton.classList.add("active");
+    carrousselMapHomepage.classList.add("d-none")
   })
 }
 

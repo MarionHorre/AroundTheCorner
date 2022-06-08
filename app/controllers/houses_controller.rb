@@ -19,6 +19,7 @@ class HousesController < ApplicationController
     html_content = URI.open("https://lalilloise-immobilier.fr/annonces/")
     html_doc = Nokogiri::HTML(html_content)
     html_doc.search('.card').each do |element|
+
     square_meter = element.search(".annonce-infos li").first.text
     room_number = element.search(".annonce-infos li")[1].text
     name = element.search(".card-content .cat-name").text
@@ -27,10 +28,6 @@ class HousesController < ApplicationController
     link = element.search(".card-link")[0]['href']
     begin
       html_doc_unique = Nokogiri::HTML(URI.open(link))
-      galerie_img = html_doc_unique.search('.galerie-image')
-      if galerie_img.size > 0
-        thumbnail = galerie_img.attr('srcset').value
-      end
     rescue OpenURI::HTTPError => e
       puts "Can't access #{link }"
       puts e.message
