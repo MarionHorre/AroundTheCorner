@@ -294,3 +294,5 @@ if(superficieInput) {
     superficieValue.innerHTML = superficieInput.value + " m²";
   })
 }
+
+// Cette section sert à afficher une image s'il n'y en a pas

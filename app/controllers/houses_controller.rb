@@ -23,6 +23,7 @@ class HousesController < ApplicationController
   end
 
   def scrapping_lilloise
+    House.destroy_all
     lilloise_url.search('.card').each do |element|
       square_meter = element.search(".annonce-infos li").first.text
       room_number = element.search(".annonce-infos li")[1].text
@@ -32,7 +33,9 @@ class HousesController < ApplicationController
       link = element.search(".card-link")[0]['href']
       rescue_link(link)
       url_image = element.search(".attachment-annonce-thumb").attr('data-src').value.gsub(/400x200/, '640x480')
-      House.create![name: name, description: description, image: url_image, square_meters: square_meter, room_number: room_number, price: price, link: link]
+      House.create!(name: name, description: description, image: url_image,
+                    square_meters: square_meter, room_number: room_number, price: price,
+                    link: link)
     end
   end
 
