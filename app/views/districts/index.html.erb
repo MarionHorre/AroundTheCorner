@@ -34,7 +34,7 @@
           <div class="min-price-value">€</div>
         </div>
         <div class="card-rooms-district">
-          <%= f.input :nombre_de_pièces, input_html: { min: 0, max: 10, step: 1, value: 3, name: 'house[number_of_room]', class: 'number-of-rooms-input'}, as: :range, min: 0, max: 10%>
+          <%= f.input :nombre_de_pièces, input_html: { min: 0, max: 10, step: 1, value: 3, name: 'house[number_of_room]', class: 'number-of-rooms-input'}, as: :range, min: 0, max: 10 %>
           <div class="room-value">3 pièces</div>
         </div>
 
@@ -52,7 +52,7 @@
   </div>
 
   <%# faire la modale vers carte  %>
-  <div class="map-quartier">
+  <div class="map-quartier d-none">
     <button>Cartes des quartiers</button>
   </div>
 </div>

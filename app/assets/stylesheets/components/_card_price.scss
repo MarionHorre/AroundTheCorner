@@ -10,8 +10,9 @@
   justify-content: center;
   // position: relative;
   height: 375px;
-  width: 1200px;
-  left: 10%;
+  width: 1337px;
+  // left: 10%;
+  transform: translateY(-13%);
 
   & > h4 {
     position: absolute;
@@ -38,7 +39,7 @@
   column-gap: 4em;
 
   & > .button-search-house {
-    right: -10%;
+    right: -15%;
     position: absolute;
     background-color: $medium-green;
     border-radius: 5px;
@@ -74,3 +75,7 @@
 .search_price_nombre_de_pièces, .search_price_min, .search_price_max, .search_price_superficie {
   text-align: start;
 }
+
+// .number-of-rooms-input {
+//   width: 79%;
+// }
