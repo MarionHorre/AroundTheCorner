@@ -6,6 +6,7 @@
 
     <div class='card-house-global' data-controller="modal">
       <% @results.each do |result| %>
+      <%= raise %>
       <div class="global" data-controller="modal">
         <div class='card-house' data-modal-target="normal" data-action="click->modal#display" >
           <div class='image-house'><img src="<%= result[0][:url_image] %>" alt=""></div>

@@ -37,6 +37,10 @@ gem "geocoder"
 
 gem 'rgeo-geojson'
 
+# sidekiq for backgroundjob => scrapping 1/jour
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 
 gem 'dotenv-rails', groups: [:development, :test]
 # gem 'jbuilder'
