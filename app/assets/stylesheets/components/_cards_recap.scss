@@ -104,3 +104,38 @@
 
   }
 }
+
+.present{
+  color: $medium-green;
+
+  .fa-2x{
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+
+
+.priority-ranking{
+  margin-top: 10px;
+  padding: 10px;
+  min-width: 400px;
+  border-radius: 4px;
+}
+
+.icone-ranking{
+  margin-top: 10px;
+  padding: 10px;
+  min-width: 400px;
+  border-radius: 4px;
+}
+
+
+.icone-ranking1{
+  flex-direction: row;
+  display: flex;
+}
+
+.priority-ranking1 {
+  flex-direction: row;
+  display: flex;
+}

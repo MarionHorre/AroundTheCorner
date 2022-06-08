@@ -9,6 +9,7 @@ class PagesController < ApplicationController
       {
         lat: metro.latitude,
         lng: metro.longitude
+
         # info_window: render_to_string(partial: "info_window", locals: { metro: metro })
       }
     end
@@ -22,7 +23,4 @@ class PagesController < ApplicationController
     @params = params
     session[:params] = @params
   end
-
-
-
 end
