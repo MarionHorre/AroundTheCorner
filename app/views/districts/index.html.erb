@@ -1,4 +1,4 @@
-<div class="container-district">
+<div class="container-district" data-controller="district-recap">
 
   <h1>Résultats de vos quartiers</h1>
 
@@ -9,7 +9,8 @@
   <div class="cards-districts ">
     <% @top_3_districts.each do |district| %>
       <%# On va donner une id à chaque district pour selectionner la bonne ensuite en js %>
-      <div id="<%= district.id %>" class="card-district">
+      <div id="<%= district.id %>" class="card-district" data-district-recap-target="card"
+      data-action="click->district-recap#selectedDistrict" data-id="<%= district.id%>">
         <div class="image-district">
           <a href="#"></a>
           <img src="<%= district.image %>" alt="">
@@ -45,6 +46,9 @@
         <div class="card-superficie-district">
           <%= f.input :superficie, input_html: {min: 0, max: 250, step: 1, value: 65, name: 'house[square_meter]', class: 'square-meter-input'}, as: :range, min: 0, max: 250 %>
           <div class="superficie-value">65 m²</div>
+        </div>
+        <div class="card-id-district d-none" data-district-recap-target="form">
+
         </div>
         <%= f.submit "Lancer la recherche", class: "button-search-house"  %>
       </div>
