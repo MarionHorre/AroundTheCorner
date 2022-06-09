@@ -163,7 +163,7 @@
 
 
     <div class="card_recap_buttons">
-      <%= link_to "Précédent", root_path %>
+      <%# <%= link_to "Précédent", root_path %>
      <%= simple_form_for :search, url: districts_path, method: "GET" do |f|  %>
       <%= f.input :priority, input_html: {name: 'priority', id: "input_priority"} %>
       <%= f.submit "Suivant" %>
