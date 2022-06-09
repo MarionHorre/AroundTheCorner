@@ -22,7 +22,7 @@
           <i class="fas fa-bicycle fa-2x"></i>
           <p>V-Lille</p>
         </div>
-        <div class="<%= !@params["transport"]["métro"] ? "d-none" : "" %>" >
+        <div class="<%= !@params["transport"]["metro"] ? "d-none" : "" %>" >
           <i class="fas fa-subway fa-2x"></i>
           <p>Metro</p>
         </div>
@@ -162,9 +162,13 @@
 
 
 
+
     <div class="card_recap_buttons" data-controller="submit-recap">
-      <%= link_to "Précédent", root_path %>
       <a data-action="click->submit-recap#submit">Suivant</a>
+
+    <div class="card_recap_buttons">
+      <%# <%= link_to "Précédent", root_path %>
+
      <%= simple_form_for :search, url: districts_path, method: "GET" do |f|  %>
       <%= f.input :priority, label: false, input_html: {name: 'priority', id: "input_priority", hidden: true} %>
       <%= f.submit "Suivant", hidden:true, data: {submit_recap_target: "button" }%>
