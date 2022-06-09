@@ -16,6 +16,7 @@ class HousesController < ApplicationController
 
     @houses = House.where("CAST(square_meters AS int) >= ? AND CAST(room_number AS int) >= ? AND CAST(price AS int) BETWEEN ? AND ?", square_meters_form, rooms_number_form, minimal_price_form, maximal_price_form)
 
+
     # récupérer les bons paramètres pour district et price
     # district = district.name
     # price = house.price
