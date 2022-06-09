@@ -4,9 +4,11 @@ class HousesController < ApplicationController
   require 'nokogiri'
 
   def index
-    scrapping_lilloise
+    # a mettre en commentaire ou non, exec le scrapping
+    # scrapping_lilloise
+
     # c'est pour vérifier si on récupère bien les params de district, puis a retirer
-    @houses_params = params["house"]
+    # @houses_params = params["house"]
 
     @houses = House.all
     # récupérer les bons paramètres pour district et price

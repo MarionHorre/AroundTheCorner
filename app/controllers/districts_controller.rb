@@ -1,3 +1,5 @@
+require "json"
+
 class DistrictsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
@@ -5,6 +7,9 @@ class DistrictsController < ApplicationController
     #session[:priority] = params
     # on récupère les params
     @district_params = session[:params]
+
+    parsed_params = JSON.parse(params[:priority])
+    raise
 
     # crée une hash par catégorie disposant des params du form
     transports = session[:params]["transport"]
@@ -42,8 +47,9 @@ class DistrictsController < ApplicationController
     @top_3_districts = district_instances
   end
 
-  # def search_flat
-  #   @params = params
-  # end
+  private
 
+  def district_scorring
+
+  end
 end
