@@ -5,7 +5,7 @@ class HousesController < ApplicationController
 
   def index
 
-    scrapping_lilloise
+    #scrapping_lilloise
 
     #Hash par catégorie avec les params du form
     square_meters_form = params[:house]['square_meter'].to_i
@@ -14,7 +14,7 @@ class HousesController < ApplicationController
     maximal_price_form = params[:house]['max_price'].to_i
 
 
-    @houses = House.where( "CAST(square_meters AS int) >= ? AND CAST(room_number AS int) >= ? AND CAST(price AS int) BETWEEN ? AND ?", square_meters_form, rooms_number_form, minimal_price_form, maximal_price_form)
+    @houses = House.where("CAST(square_meters AS int) >= ? AND CAST(room_number AS int) >= ? AND CAST(price AS int) BETWEEN ? AND ?", square_meters_form, rooms_number_form, minimal_price_form, maximal_price_form)
 
     # récupérer les bons paramètres pour district et price
     # district = district.name
@@ -30,7 +30,6 @@ class HousesController < ApplicationController
   end
 
   def scrapping_lilloise
-    House.destroy_all
     lilloise_url.search('.card').each do |element|
       square_meter = element.search(".annonce-infos li").first.text.match(/\d{2,3}\b(,)/)[0][0..-2].to_i
       room_number = element.search(".annonce-infos li")[1].text.to_i
@@ -39,10 +38,12 @@ class HousesController < ApplicationController
       price = element.search(".price").text[0..-2].gsub(" ", "").to_i
       link = element.search(".card-link")[0]['href']
       rescue_link(link)
-      url_image = element.search(".attachment-annonce-thumb").attr('data-src').value.gsub(/400x200/, '640x480')
-      House.create!(name: name, description: description, image: url_image,
-                    square_meters: square_meter, room_number: room_number, price: price,
-                    link: link)
+      unless House.find_by(name: name, description: description, price: price)
+        url_image = element.search(".attachment-annonce-thumb").attr('data-src').value.gsub(/400x200/, '640x480')
+        House.create!(name: name, description: description, image: url_image,
+                      square_meters: square_meter, room_number: room_number, price: price,
+                      link: link)
+      end
     end
   end
 
@@ -51,6 +52,5 @@ class HousesController < ApplicationController
   rescue OpenURI::HTTPError => e
     puts "Can't access #{link_url}"
     puts e.message
-    puts
   end
 end
