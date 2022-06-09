@@ -18,6 +18,18 @@ class UpdateScrappingJob < ApplicationJob
       rescue_link(link)
       unless House.find_by(name: name, description: description, price: price)
         url_image = element.search(".attachment-annonce-thumb").attr('data-src').value.gsub(/400x200/, '640x480')
+        begin
+          file = URI.open(url_image)
+          doc = Nokogiri::HTML(file) do
+            url_image = url_image
+          end
+        rescue OpenURI::HTTPError => e
+          if e.message == '404 Not Found'
+            url_image = url_image.gsub(/640x480/, '400x200')
+          else
+            raise e
+          end
+        end
         House.create!(name: name, description: description, image: url_image,
                       square_meters: square_meter, room_number: room_number, price: price,
                       link: link)
