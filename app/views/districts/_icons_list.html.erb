@@ -1,64 +1,64 @@
 <%# <%= district_params %>
 
 <div class="card_cards">
-  <div class="card_recap_category_card">
+  <div class="card_recap_category_card ">
     <% if district_params[0]["transport"] %>
       <div class="<%= !district_params[0]["transport"]["bus"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 2").count %></strong> Bus <i class="fas fa-bus-alt fa-lg"></i></p>
+        <p><i class="fas fa-bus-alt fa-lg"></i><strong><%= district_params[1].types.where("type_id = 2").count %></strong> Bus </p>
       </div>
       <div class="<%= !district_params[0]["transport"]["vlille"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 1").count %></strong> V-Lille <i class="fas fa-bicycle fa-lg"></i></p>
+        <p><i class="fas fa-bicycle fa-lg"></i><strong><%= district_params[1].types.where("type_id = 1").count %></strong> V-Lille </p>
       </div>
       <div class="<%= !district_params[0]["transport"]["métro"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 3").count %></strong> Metro <i class="fas fa-subway fa-lg"></i></p>
+        <p><i class="fas fa-subway fa-lg"></i><strong><%= district_params[1].types.where("type_id = 3").count %></strong> Metro </p>
       </div>
       <div class="<%= !district_params[0]["transport"]["tram"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 4").count %></strong> Tramway <i class="fas fa-tram fa-lg"></i></p>
+        <p><i class="fas fa-tram fa-lg"></i><strong><%= district_params[1].types.where("type_id = 4").count %></strong> Tramway </p>
       </div>
     <% end %>
   </div>
   <div class="card_recap_category_card">
     <% if district_params[0]["vie quotidienne"] %>
       <div class="<%= !district_params[0]["vie quotidienne"]["supermarché"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 13").count %></strong> Supermarché <i class="fas fa-store fa-lg"></i></p>
+        <p><i class="fas fa-store fa-lg"></i><strong><%= district_params[1].types.where("type_id = 13").count %></strong> Supermarché </p>
       </div>
       <div class="<%= !district_params[0]["vie quotidienne"]["école"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 14").count %></strong> École <i class="fas fa-school fa-lg"></i></p>
+        <p><i class="fas fa-school fa-lg"></i><strong><%= district_params[1].types.where("type_id = 14").count %></strong> École </p>
       </div>
       <div class="<%= !district_params[0]["vie quotidienne"]["parc à jeux"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 15").count %></strong> Aire de jeux <i class="fas fa-child fa-lg"></i></p>
+        <p> <i class="fas fa-child fa-lg"></i><strong><%= district_params[1].types.where("type_id = 15").count %></strong> Aire de jeux</p>
       </div>
     <% end %>
   </div>
   <div class="card_recap_category_card">
     <% if district_params[0]["hobbies"] %>
       <div class="<%= !district_params[0]["hobbies"]["library"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 9").count %></strong> Bibliothèque <i class="fas fa-book fa-lg"></i></p>
+        <p><i class="fas fa-book fa-lg"></i><strong><%= district_params[1].types.where("type_id = 9").count %></strong> Bibliothèque </p>
       </div>
       <div class="<%= !district_params[0]["hobbies"]["swimming_pool"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 8").count %></strong> Piscine <i class="fas fa-swimmer fa-lg"></i></p>
+        <p><i class="fas fa-swimmer fa-lg"></i><strong><%= district_params[1].types.where("type_id = 8").count %></strong> Piscine </p>
       </div>
       <div class="<%= !district_params[0]["hobbies"]["historical monuments"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 5").count %></strong> Musée <i class="fas fa-university fa-lg"></i></p>
+        <p><i class="fas fa-university fa-lg"></i><strong><%= district_params[1].types.where("type_id = 5").count %></strong> Musée</p>
       </div>
       <div class="<%= !district_params[0]["hobbies"]["parcs"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 7").count %></strong> Parc <i class="fas fa-tree fa-lg"></i></p>
+        <p><i class="fas fa-tree fa-lg"></i><strong><%= district_params[1].types.where("type_id = 7").count %></strong> Parc </p>
       </div>
       <div class="<%= !district_params[0]["hobbies"]["movie_theater"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 6").count %></strong> Cinéma <i class="fas fa-film fa-lg"></i></p>
+        <p><i class="fas fa-film fa-lg"></i><strong><%= district_params[1].types.where("type_id = 6").count %></strong> Cinéma </p>
       </div>
     <% end %>
   </div>
   <div class="card_recap_category_card">
     <% if district_params[0]["santé"] %>
       <div class="<%= !district_params[0]["santé"]["pharmacie"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 10").count %></strong> Pharmacie <i class="fas fa-pills fa-lg"></i></p>
+        <p><i class="fas fa-pills fa-lg"></i><strong><%= district_params[1].types.where("type_id = 10").count %></strong> Pharmacie </p>
       </div>
       <div class="<%= !district_params[0]["santé"]["hôpital"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 11").count %></strong> Hôpital <i class="fas fa-hospital fa-lg"></i></p>
+        <p><i class="fas fa-hospital fa-lg"></i><strong><%= district_params[1].types.where("type_id = 11").count %></strong> Hôpital </p>
       </div>
       <div class="<%= !district_params[0]["santé"]["vétérinaire"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><strong><%= district_params[1].types.where("type_id = 12").count %></strong> Vétérinaire <i class="fas fa-paw fa-lg"></i></p>
+        <p><i class="fas fa-paw fa-lg"></i><strong><%= district_params[1].types.where("type_id = 12").count %></strong> Vétérinaire </p>
       </div>
     <% end %>
   </div>
