@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
     session[:user] = SecureRandom.base58 #Generate a token key for the user without altering the DB
     @mairies = Interest.where(type_id: 10)
-
     @markers = @mairies.geocoded.map do |mairie|
       {
         lat: mairie.longitude,

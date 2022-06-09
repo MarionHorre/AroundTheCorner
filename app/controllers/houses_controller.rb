@@ -11,8 +11,7 @@ class HousesController < ApplicationController
     rooms_number_form = params[:house]['number_of_room'].to_i
     minimal_price_form = params[:house]['min_price'].to_i
     maximal_price_form = params[:house]['max_price'].to_i
-
-
+    @district = District.find(params[:house][:districtId])
     @houses = House.where("CAST(square_meters AS int) >= ? AND CAST(room_number AS int) >= ? AND CAST(price AS int) BETWEEN ? AND ?", square_meters_form, rooms_number_form, minimal_price_form, maximal_price_form)
 
 
