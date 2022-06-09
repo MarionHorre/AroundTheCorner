@@ -19,6 +19,7 @@
     z-index: 1;
     left: 19%;
     bottom: 67%;
+    font-family: 'Lora';
   }
 }
 
@@ -39,12 +40,12 @@
   column-gap: 4em;
 
   & > .button-search-house {
-    right: -15%;
+    right: -11%;
     position: absolute;
-    background-color: $medium-green;
+    background-color: #417D7A;
     border-radius: 5px;
-    width: 300px;
-    padding: 20px;
+    width: 197px;
+    padding: 25px;
     text-align: center;
     border: none;
     color: white;
