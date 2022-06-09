@@ -4,7 +4,6 @@ class HousesController < ApplicationController
   require 'nokogiri'
 
   def index
-
     #scrapping_lilloise
 
     #Hash par catégorie avec les params du form
