@@ -1,7 +1,9 @@
 <%# a retirer, juste pour verifier si les params passent bien %>
 
 <div class='container'>
-  <h1>Logements disponibles</h1>
+  <div class="title_houses">
+    <h1>Logements disponibles</h1>
+  </div>
 
     <div class='card-house-global' data-controller="modal">
       <% @houses.each do |house| %>
@@ -11,11 +13,11 @@
           <h3><%= house[:name] %></h3>
           <div class="card-house-infos">
             <div class="card-infos-1">
-              <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= house[:square_meters] %></p>
-              <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= house[:room_number] %></p>
+              <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= house[:square_meters]%> m²</p>
+              <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= house[:room_number]%> pièces</p>
             </div>
             <div class="card-infos-2">
-              <p><%= house[:price] %></p>
+              <p><%= house[:price]%> €</p>
               <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
             </div>
           </div>
@@ -27,11 +29,11 @@
             <div class="modal_house_flex">
               <div class="modal_house_infos">
                 <div class="modal_house_infos-1">
-                  <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= house[:square_meters] %></p>
-                  <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= house[:room_number] %></p>
+                  <p><img src="https://cdn-icons-png.flaticon.com/512/865/865319.png" alt=""><%= house[:square_meters] %> m²</p>
+                  <p><img src="https://www.pinclipart.com/picdir/big/113-1130894_dorms-hotel-room-icon-clipart.png" alt=""><%= house[:room_number] %> pièces</p>
                 </div>
                 <div class="modal_house_infos-2">
-                  <p><strong><%= house[:price] %></strong></p>
+                  <p><strong><%= house[:price] %> €</strong></p>
                   <p><img src="https://www.cjoint.com/doc/22_06/LFgpikUIDql_pixlr-bg-result-4-.png" alt=""></p>
                 </div>
               </div>
