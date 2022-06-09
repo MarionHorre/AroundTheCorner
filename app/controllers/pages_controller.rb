@@ -3,12 +3,12 @@ class PagesController < ApplicationController
 
   def home
     session[:user] = SecureRandom.base58 #Generate a token key for the user without altering the DB
-    @metros = Interest.where(type_id: 3)
+    @mairies = Interest.where(type_id: 10)
 
-    @markers = @metros.geocoded.map do |metro|
+    @markers = @mairies.geocoded.map do |mairie|
       {
-        lat: metro.latitude,
-        lng: metro.longitude
+        lat: mairie.longitude,
+        lng: mairie.latitude
 
         # info_window: render_to_string(partial: "info_window", locals: { metro: metro })
       }
