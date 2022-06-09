@@ -40,8 +40,8 @@ class DistrictsController < ApplicationController
     end
 
     @top_3_districts = district_instances
+    session[:params] = nil
   end
-
   # def search_flat
   #   @params = params
   # end
