@@ -1,0 +1,5 @@
+meta_product_name: "Around the Corner"
+meta_title: "Around the Corner - L'outil qu'il vous manquait pour vous décider!"
+meta_description: "Nous vous offrons une solution adaptée et personnalisée pour vous aider à choisir votre quartier."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
