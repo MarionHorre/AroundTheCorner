@@ -162,11 +162,12 @@
 
 
 
-    <div class="card_recap_buttons">
+    <div class="card_recap_buttons" data-controller="submit-recap">
       <%= link_to "Précédent", root_path %>
+      <a data-action="click->submit-recap#submit">Suivant</a>
      <%= simple_form_for :search, url: districts_path, method: "GET" do |f|  %>
-      <%= f.input :priority, input_html: {name: 'priority', id: "input_priority"} %>
-      <%= f.submit "Suivant" %>
+      <%= f.input :priority, label: false, input_html: {name: 'priority', id: "input_priority", hidden: true} %>
+      <%= f.submit "Suivant", hidden:true, data: {submit_recap_target: "button" }%>
     <% end %>
     </div>
   </div>
