@@ -9,6 +9,11 @@ const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
 
+
+
+// sortable
+
+
 // const next = document.getElementById('next');
 // const form_category = document.querySelectorAll(".form-category")
 
@@ -293,4 +298,12 @@ if(superficieInput) {
   superficieInput.addEventListener("mouseup", (event) => {
     superficieValue.innerHTML = superficieInput.value + " m²";
   })
+}
+
+// Cette section sert à afficher une image s'il n'y en a pas
+
+const houseImage = document.querySelectorAll(".image-house")
+
+if(houseImage) {
+  console.log(houseImage)
 }

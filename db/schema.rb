@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_092015) do
+ActiveRecord::Schema.define(version: 2022_06_08_140203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,12 @@ ActiveRecord::Schema.define(version: 2022_06_02_092015) do
     t.string "name"
     t.string "image"
     t.string "description"
-    t.integer "price"
-    t.integer "square_meters"
-    t.integer "room_number"
-    t.bigint "district_id", null: false
+    t.string "price"
+    t.string "square_meters"
+    t.string "room_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["district_id"], name: "index_houses_on_district_id"
+    t.string "link"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -78,7 +77,6 @@ ActiveRecord::Schema.define(version: 2022_06_02_092015) do
 
   add_foreign_key "bookmarks", "houses"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "houses", "districts"
   add_foreign_key "interests", "districts"
   add_foreign_key "interests", "types"
 end

@@ -14,15 +14,15 @@
     <div class="card_cards">
       <div class="card_recap_category_card">
         <% if @params["transport"] %>
-        <div class="<%= !@params["transport"]["bus"] ? "d-none" : "" %>">
+        <div class="<%= !@params["transport"]["bus"] ? "d-none" : "" %>" >
           <i class="fas fa-bus-alt fa-2x"></i>
           <p>Bus</p>
         </div>
-        <div class="<%= !@params["transport"]["vlille"] ? "d-none" : "" %>">
+        <div class="<%= !@params["transport"]["vlille"] ? "d-none" : "" %>" >
           <i class="fas fa-bicycle fa-2x"></i>
           <p>V-Lille</p>
         </div>
-        <div class="<%= !@params["transport"]["métro"] ? "d-none" : "" %>">
+        <div class="<%= !@params["transport"]["métro"] ? "d-none" : "" %>" >
           <i class="fas fa-subway fa-2x"></i>
           <p>Metro</p>
         </div>
@@ -34,15 +34,15 @@
       </div>
       <div class="card_recap_category_card">
       <% if @params["vie quotidienne"] %>
-        <div class="<%= !@params["vie quotidienne"]["supermarché"] ? "d-none" : "" %>">
+        <div class="<%= !@params["vie quotidienne"]["supermarché"] ? "d-none" : "" %>" >
           <i class="fas fa-store fa-2x"></i>
           <p>Supermarché</p>
         </div>
-        <div class="<%= !@params["vie quotidienne"]["école"] ? "d-none" : "" %>">
+        <div class="<%= !@params["vie quotidienne"]["école"] ? "d-none" : "" %>" >
           <i class="fas fa-school fa-2x"></i>
           <p>École</p>
         </div>
-        <div class="<%= !@params["vie quotidienne"]["parc à jeux"] ? "d-none" : "" %>">
+        <div class="<%= !@params["vie quotidienne"]["parc à jeux"] ? "d-none" : "" %>" >
           <i class="fas fa-child fa-2x"></i>
           <p>Aire de jeux</p>
         </div>
@@ -50,7 +50,7 @@
       </div>
       <div class="card_recap_category_card">
       <% if @params ["hobbies"] %>
-        <div class="<%= !@params["hobbies"]["library"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["library"] ? "d-none" : "" %>" >
           <i class="fas fa-book fa-2x"></i>
           <p>Bibliothèque</p>
         </div>
@@ -58,11 +58,11 @@
           <i class="fas fa-swimmer fa-2x"></i>
           <p>Piscine</p>
         </div>
-        <div class="<%= !@params["hobbies"]["historical monuments"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["historical monuments"] ? "d-none" : "" %>" >
           <i class="fas fa-university fa-2x"></i>
           <p>Musée</p>
         </div>
-        <div class="<%= !@params["hobbies"]["parcs"] ? "d-none" : "" %>">
+        <div class="<%= !@params["hobbies"]["parcs"] ? "d-none" : "" %>" >
           <i class="fas fa-tree fa-2x"></i>
           <p>Parc</p>
         </div>
@@ -74,11 +74,11 @@
       </div>
       <div class="card_recap_category_card">
       <% if @params ["santé"] %>
-        <div class="<%= !@params["santé"]["pharmacie"] ? "d-none" : "" %>">
+        <div class="<%= !@params["santé"]["pharmacie"] ? "d-none" : "" %>" >
           <i class="fas fa-pills fa-2x"></i>
           <p>Pharmacie</p>
         </div>
-        <div class="<%= !@params["santé"]["hôpital"] ? "d-none" : "" %>">
+        <div class="<%= !@params["santé"]["hôpital"] ? "d-none" : "" %>" >
           <i class="fas fa-hospital fa-2x"></i>
           <p>Hôpital</p>
         </div>
@@ -88,11 +88,86 @@
         </div>
         <% end %>
       </div>
+
+        <div class="card priority-ranking"  >
+          <div><p>Placez vos choix par ordre de priorité :</p></div>
+          <div id="priority-container" class="priority-ranking1" data-controller="recap-priority" data-recap-priority-target="list"></div>
+        </div>
+
+        <div class="card icone-ranking" >
+          <div><p>Voici vos choix :</p></div>
+          <div class="icone-ranking1" data-controller="recap-priority" >
+            <% if @params["transport"] %>
+            <div data-type="bus" class="<%= !@params["transport"]["bus"] ? "d-none" : "present" %>" >
+              <i class="fas fa-bus-alt fa-2x"></i>
+            </div>
+            <div data-type="vlille" class="<%= !@params["transport"]["vlille"] ? "d-none" : "present" %>">
+              <i class="fas fa-bicycle fa-2x"></i>
+            </div>
+            <div data-type="métro" class="<%= !@params["transport"]["métro"] ? "d-none" : "present" %>">
+              <i class="fas fa-subway fa-2x"></i>
+            </div>
+            <div data-type="tram" class="<%= !@params["transport"]["tram"] ? "d-none" : "present" %>" >
+              <i class="fas fa-tram fa-2x"></i>
+            </div>
+            <% end %>
+
+            <% if @params["vie quotidienne"] %>
+            <div data-type="supermarché" class="<%= !@params["vie quotidienne"]["supermarché"] ? "d-none" : "present" %>" >
+              <i class="fas fa-store fa-2x"></i>
+            </div>
+            <div data-type="école" class="<%= !@params["vie quotidienne"]["école"] ? "d-none" : "present" %>" >
+              <i class="fas fa-school fa-2x"></i>
+            </div>
+            <div data-type="parc à jeux" class="<%= !@params["vie quotidienne"]["parc à jeux"] ? "d-none" : "present" %>" >
+              <i class="fas fa-child fa-2x"></i>
+            </div>
+            <% end %>
+
+            <% if @params ["hobbies"] %>
+            <div data-type="bibliothèque" class="<%= !@params["hobbies"]["library"] ? "d-none" : "present" %>" >
+              <i class="fas fa-book fa-2x"></i>
+            </div>
+            <div data-type="piscine" class="<%= !@params["hobbies"]["swimming_pool"] ? "d-none" : "present" %>">
+              <i class="fas fa-swimmer fa-2x"></i>
+            </div>
+            <div data-type="musée" class="<%= !@params["hobbies"]["historical monuments"] ? "d-none" : "present" %>">
+              <i class="fas fa-university fa-2x"></i>
+            </div>
+            <div data-type="parc" class="<%= !@params["hobbies"]["parcs"] ? "d-none" : "present" %>" >
+              <i class="fas fa-tree fa-2x"></i>
+            </div>
+            <div data-type="cinéma" class="<%= !@params["hobbies"]["movie_theater"] ? "d-none" : "present" %>">
+              <i class="fas fa-film fa-2x"></i>
+            </div>
+            <% end %>
+
+            <% if @params ["santé"] %>
+            <div data-type="pharmacie" class="<%= !@params["santé"]["pharmacie"] ? "d-none" : "present" %>" >
+              <i class="fas fa-pills fa-2x"></i>
+            </div>
+            <div data-type="hopital" class="<%= !@params["santé"]["hôpital"] ? "d-none" : "present" %>" >
+              <i class="fas fa-hospital fa-2x"></i>
+            </div>
+            <div data-type="vétérinaire" class="<%= !@params["santé"]["vétérinaire"] ? "d-none" : "present" %>">
+              <i class="fas fa-paw fa-2x"></i>
+            </div>
+            <% end %>
+          </div>
+        </div >
+
     </div>
+
+
+
+
 
     <div class="card_recap_buttons">
       <%= link_to "Précédent", root_path %>
-      <%= link_to "Suivant", districts_path %>
+     <%= simple_form_for :search, url: districts_path, method: "GET" do |f|  %>
+      <%= f.input :priority, input_html: {name: 'priority', id: "input_priority"} %>
+      <%= f.submit "Suivant" %>
+    <% end %>
     </div>
   </div>
 </div>
