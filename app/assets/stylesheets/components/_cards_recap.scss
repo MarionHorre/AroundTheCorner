@@ -120,6 +120,9 @@
   padding: 10px;
   min-width: 400px;
   border-radius: 4px;
+  p{
+    margin-bottom: 0;
+  }
 }
 
 .icone-ranking{
@@ -127,15 +130,20 @@
   padding: 10px;
   min-width: 400px;
   border-radius: 4px;
+  p{
+    margin-bottom: 0;
+  }
 }
 
 
 .icone-ranking1{
   flex-direction: row;
   display: flex;
+  padding: 10px;
 }
 
 .priority-ranking1 {
   flex-direction: row;
   display: flex;
+  padding: 10px;
 }
