@@ -39,6 +39,23 @@ movie_theater = Type.create(category: 'hobbies', name: 'movie_theater')
 parc = Type.create(category: 'hobbies', name: 'parcs')
 swimming_pool = Type.create(category: 'hobbies', name: 'swimming_pool')
 library = Type.create(category: 'hobbies', name: 'library')
+mairie = Type.create(category: 'mairie', name: 'mairie')
+
+# seeds Mairie
+Interest.create!(longitude: "50.639521", latitude: "3.012017", type: mairie, district: lomme)
+Interest.create!(longitude: "50.631017", latitude: "3.022717", type: mairie, district: bois_blanc)
+Interest.create!(longitude: "50.624816", latitude: "3.050695", type: mairie, district: wazemmes)
+Interest.create!(longitude: "50.612816", latitude: "3.047617", type: mairie, district: lille_sud)
+Interest.create!(longitude: "50.619242", latitude: "3.064762", type: mairie, district: lille_moulins)
+Interest.create!(longitude: "50.619548", latitude: "3.031980", type: mairie, district: faubourg_de_bethune)
+Interest.create!(longitude: "50.628229", latitude: "3.108118", type: mairie, district: hellemmes)
+Interest.create!(longitude: "50.633864", latitude: "3.041207", type: mairie, district:vauban_esquermes)
+Interest.create!(longitude: "50.641419", latitude: "3.086578", type: mairie, district: saint_maurice_pellevoisin)
+Interest.create!(longitude: "50.634355", latitude: "3.061765", type: mairie, district: lille_centre)
+Interest.create!(longitude: "50.644108", latitude: "3.059639", type: mairie, district: vieux_lille)
+Interest.create!(longitude: "50.633173", latitude: "3.090068", type: mairie, district: fives)
+
+
 
 # seeds Interest
 polygone_maker = PolygoneMaker.new('db/data-mel/district/limite-des-quartiers-de-lille-et-de-ses-communes-associees.geojson')
