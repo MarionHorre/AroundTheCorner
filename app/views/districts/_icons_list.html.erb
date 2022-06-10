@@ -20,13 +20,13 @@
   <div class="card_recap_category_card">
     <% if district_params[0]["vie quotidienne"] %>
       <div class="<%= !district_params[0]["vie quotidienne"]["supermarché"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><i class="fas fa-store fa-lg"></i><strong><%= district_params[1].types.where("type_id = 13").count %></strong> Supermarché </p>
+        <p><i class="fas fa-store fa-lg"></i><strong><%= district_params[1].types.where("type_id = 14").count %></strong> Supermarché </p>
       </div>
       <div class="<%= !district_params[0]["vie quotidienne"]["école"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><i class="fas fa-school fa-lg"></i><strong><%= district_params[1].types.where("type_id = 14").count %></strong> École </p>
+        <p><i class="fas fa-school fa-lg"></i><strong><%= district_params[1].types.where("type_id = 15").count %></strong> École </p>
       </div>
       <div class="<%= !district_params[0]["vie quotidienne"]["parc à jeux"] ? "d-none" : "icons-centered-for-district" %>">
-        <p> <i class="fas fa-child fa-lg"></i><strong><%= district_params[1].types.where("type_id = 15").count %></strong> Aire de jeux</p>
+        <p> <i class="fas fa-child fa-lg"></i><strong><%= district_params[1].types.where("type_id = 16").count %></strong> Aire de jeux</p>
       </div>
     <% end %>
   </div>
@@ -52,13 +52,13 @@
   <div class="card_recap_category_card">
     <% if district_params[0]["santé"] %>
       <div class="<%= !district_params[0]["santé"]["pharmacie"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><i class="fas fa-pills fa-lg"></i><strong><%= district_params[1].types.where("type_id = 10").count %></strong> Pharmacie </p>
+        <p><i class="fas fa-pills fa-lg"></i><strong><%= district_params[1].types.where("type_id = 11").count %></strong> Pharmacie </p>
       </div>
       <div class="<%= !district_params[0]["santé"]["hôpital"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><i class="fas fa-hospital fa-lg"></i><strong><%= district_params[1].types.where("type_id = 11").count %></strong> Hôpital </p>
+        <p><i class="fas fa-hospital fa-lg"></i><strong><%= district_params[1].types.where("type_id = 12").count %></strong> Hôpital </p>
       </div>
       <div class="<%= !district_params[0]["santé"]["vétérinaire"] ? "d-none" : "icons-centered-for-district" %>">
-        <p><i class="fas fa-paw fa-lg"></i><strong><%= district_params[1].types.where("type_id = 12").count %></strong> Vétérinaire </p>
+        <p><i class="fas fa-paw fa-lg"></i><strong><%= district_params[1].types.where("type_id = 13").count %></strong> Vétérinaire </p>
       </div>
     <% end %>
   </div>
