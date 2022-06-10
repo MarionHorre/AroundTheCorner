@@ -8,4 +8,6 @@ export default class extends Controller {
   selectedDistrict(event) {
     this.formTarget.innerHTML=  `<input name='house[districtId]' value=${event.currentTarget.dataset.id}>`
   }
+
+
 }
