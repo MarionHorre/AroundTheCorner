@@ -16,8 +16,8 @@ row-gap: 70px;
 
   img{
     width: 365px;
-    height: auto;
-    object-fit: contain;
+    min-height: 275px;
+    object-fit: cover;
   }
 
   }
