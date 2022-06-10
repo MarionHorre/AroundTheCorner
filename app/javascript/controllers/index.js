@@ -264,23 +264,46 @@ const districtSearchForHouses = document.querySelector(".button-search-house")
 //   })
 // }
 
+////////// Change text value in district form search
+
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+const changeInputValueText = (input, text) => {
+  let value;
+    if (input.value == "") {
+      value = 0;
+    } else {
+      value = input.value;
+    }
+    text.innerHTML = `${numberWithCommas(value)} €`;
+}
+
 const minPriceInput = document.querySelector(".min-price-input");
 const minPriceValue = document.querySelector(".min-price-value");
 
 if(minPriceInput) {
-  minPriceInput.addEventListener("keypress", (event) => {
-    minPriceValue.innerHTML = minPriceValue.innerHTML + event.key;
-  })
+  minPriceInput.addEventListener("change", (event) => {
+    changeInputValueText(minPriceInput, minPriceValue);
+  });
+  minPriceInput.addEventListener("keyup", (event) => {
+    changeInputValueText(minPriceInput, minPriceValue);
+  });
 }
 
 const maxPriceInput = document.querySelector(".max-price-input");
 const maxPriceValue = document.querySelector(".max-price-value");
 
+
 if(maxPriceInput) {
-  maxPriceInput.addEventListener("keypress", (event) => {
-    maxPriceValue.innerHTML = maxPriceValue.innerHTML + event.key;
+  maxPriceInput.addEventListener("change", (event) => {
+    changeInputValueText(maxPriceInput, maxPriceValue)
+  })
+  maxPriceInput.addEventListener("keyup", (event) => {
+    changeInputValueText(maxPriceInput, maxPriceValue)
   })
 }
+//////////////////
 
 const numberOfRoomsInput = document.querySelector(".number-of-rooms-input");
 const numberOfRoomsValue = document.querySelector(".room-value");
