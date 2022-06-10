@@ -9,7 +9,7 @@
       <div class="<%= !district_params[0]["transport"]["vlille"] ? "d-none" : "icons-centered-for-district" %>">
         <p><i class="fas fa-bicycle fa-lg"></i><strong><%= district_params[1].types.where("type_id = 1").count %></strong> V-Lille </p>
       </div>
-      <div class="<%= !district_params[0]["transport"]["métro"] ? "d-none" : "icons-centered-for-district" %>">
+      <div class="<%= !district_params[0]["transport"]["metro"] ? "d-none" : "icons-centered-for-district" %>">
         <p><i class="fas fa-subway fa-lg"></i><strong><%= district_params[1].types.where("type_id = 3").count %></strong> Metro </p>
       </div>
       <div class="<%= !district_params[0]["transport"]["tram"] ? "d-none" : "icons-centered-for-district" %>">
