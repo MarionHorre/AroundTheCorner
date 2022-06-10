@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_08_140203) do
+ActiveRecord::Schema.define(version: 2022_06_09_150649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2022_06_08_140203) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "link"
+    t.bigint "district_id"
+    t.index ["district_id"], name: "index_houses_on_district_id"
   end
 
   create_table "interests", force: :cascade do |t|

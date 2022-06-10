@@ -24,29 +24,33 @@
     <% end %>
   </div>
 
-  <div id="form-price" class="container-form-price-district d-none">
+  <div id="form-price" class="container form-district d-none">
     <%# la grid se fait sur le search_price %>
+    <h4>Prix:</h4>
     <%= simple_form_for :search_price, url: houses_path, method: "GET" do |f|  %>
-      <h4>Prix:</h4>
-      <div class="card-price-district">
+
+      <div class="">
         <div class="card-min-price">
-        <%# <h4>Prix:</h4> %>
-          <%= f.input :min, input_html: {name: 'house[min_price]', class: 'min-price-input'}, as: :integer, :label_html => { :class => 'min-price-tag' } %>
-          <div class="min-price-value">€</div>
+          <%= f.input :min, input_html: {value: 0, name: 'house[min_price]', class: 'min-price-input'}, as: :integer, :label_html => { :class => 'min-price-tag' } %>
+          <div class="min-price-value">0 €</div>
         </div>
+
+        <div class="card-max-price">
+          <%= f.input :max, input_html: {value: 400000, name: 'house[max_price]', class: 'max-price-input'}, as: :integer, :label_html => { :class => 'min-price-tag' }%>
+          <div class="max-price-value">400.000 €</div>
+        </div>
+
+      </div>
+      <div>
         <div class="card-rooms-district">
           <%= f.input :nombre_de_pièces, input_html: { min: 0, max: 10, step: 1, value: 3, name: 'house[number_of_room]', class: 'number-of-rooms-input'}, as: :range, min: 0, max: 10 %>
           <div class="room-value">3 pièces</div>
         </div>
-
-        <div class="card-max-price">
-          <%= f.input :max, input_html: {name: 'house[max_price]', class: 'max-price-input'}, as: :integer, :label_html => { :class => 'min-price-tag' }%>
-          <div class="max-price-value">€</div>
-        </div>
         <div class="card-superficie-district">
-          <%= f.input :superficie, input_html: {min: 0, max: 250, step: 1, value: 65, name: 'house[square_meter]', class: 'square-meter-input'}, as: :range, min: 0, max: 250 %>
+          <%= f.input :superficie, input_html: {min: 0, max: 250, step: 1, value: 65, name: 'house[square_meter]', class: 'square-meter-input'} , as: :range, min: 0, max: 250 %>
           <div class="superficie-value">65 m²</div>
         </div>
+      </div>
         <div class="card-id-district d-none" data-district-recap-target="form">
 
         </div>
